@@ -1,0 +1,46 @@
+---
+import { umzug } from '../config/umzug';
+---
+{
+  umzug.aktiv && (
+    <div data-umzug-hinweis class="bg-primary text-primary-fg">
+      <div class="mx-auto flex max-w-site items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
+        <p class="flex items-center gap-2.5 text-sm leading-snug sm:text-base">
+          <span class="shrink-0 rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold uppercase tracking-widest text-primary-dark">
+            Hinweis
+          </span>
+          <span>
+            <strong>Neu zusammengelegt:</strong> Der Betrieb „{umzug.oldBetriebName}" ({umzug.altStandort})
+            ist umgezogen und wird ab jetzt am Chinderhof weitergeführt. {umzug.hinweis}
+          </span>
+        </p>
+        <button
+          type="button"
+          data-umzug-hinweis-close
+          class="shrink-0 rounded-full p-1 text-primary-fg/70 transition-colors hover:bg-primary-fg/10 hover:text-primary-fg"
+          aria-label="Hinweis schliessen"
+          title="Hinweis schliessen"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" class="size-4" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+<script data-astro-rerun>
+  const bar = document.querySelector('[data-umzug-hinweis]');
+  if (bar) {
+    const close = bar.querySelector('[data-umzug-hinweis-close]');
+    if (localStorage.getItem('chinderhof-umzug-hinweis') === 'versteckt') {
+      bar.remove();
+    } else {
+      close?.addEventListener('click', () => {
+        localStorage.setItem('chinderhof-umzug-hinweis', 'versteckt');
+        bar.remove();
+      });
+    }
+  }
+</script>
