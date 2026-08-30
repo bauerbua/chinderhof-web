@@ -127,5 +127,3 @@ Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1
 - Automatisierte Rechnungsstellung nach Bestätigung.
 - CRM-Anbindung & automatisierte Bestätigungs-E-Mails.
 - Abo-Verwaltung (Pausen, Mengenänderungen, Lieferrouten).
-
----
