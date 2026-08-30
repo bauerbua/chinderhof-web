@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import { brand } from '../config/brand';
+import { client } from '../data/client';
+---
+
+<BaseLayout title="Impressum" description={`Impressum und rechtliche Angaben zum ${brand.name}.`}>
+  <Header slot="header" />
+
+  <Banner title="Impressum" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl space-y-6 px-4 sm:px-6">
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">Betreiberin der Website</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          {brand.name}<br />
+          {client.address.lineOne}<br />
+          {client.address.zip} {client.address.city}<br />
+          Schweiz
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">Kontakt</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Telefon: {client.phoneFormatted}<br />
+          E-Mail: {client.email}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">Hinweis</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Die genauen Angaben (vollständiger Name der verantwortlichen Person/Familie) werden vor dem
+          Go-Live ergänzt. Diese Seite enthält vorerst Platzhalter.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">Verantwortlich für den Inhalt</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          {brand.name}, {client.address.zip} {client.address.city}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

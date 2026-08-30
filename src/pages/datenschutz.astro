@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import { brand } from '../config/brand';
+import { client } from '../data/client';
+---
+
+<BaseLayout title="Datenschutzerklärung" description={`Datenschutzerklärung der Website des ${brand.name} (DSG, Schweiz).`}>
+  <Header slot="header" />
+
+  <Banner title="Datenschutzerklärung" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl space-y-6 px-4 sm:px-6">
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">1. Grundsatz</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Wir nehmen den Schutz deiner persönlichen Daten ernst. Diese Website verarbeitet
+          personenbezogene Daten ausschliesslich im Rahmen des Schweizer Datenschutzgesetzes (DSG)
+          und soweit dies für die Erbringung unserer Angebote erforderlich ist.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">2. Kontaktformulare &amp; Anmeldungen</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Wenn du uns über eines unserer Formulare (Kontakt, Eier-Abo, Kindernachmittage oder
+          B2B-Anfrage) schreibst, werden deine Angaben elektronisch erfasst, an unsere E-Mail
+          weitergeleitet und für die Bearbeitung deiner Anfrage sowie für eine allfällige
+          (Abo-)Bestellung gespeichert. Diese Daten geben wir nicht an Dritte weiter und löschen
+          sie, sobald sie nicht mehr benötigt werden.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">3. Webanalyse (PostHog, cookieless)</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Zur Verbesserung der Website setzen wir PostHog ein. PostHog wird auf dieser Website
+          <strong class="text-text">cookieless</strong> betrieben: Es werden keine Cookies und keine
+          lokalen Speicher-Einträge gesetzt, das Tracking läuft ausschliesslich im Speicher der
+          besuchten Seite. Dadurch ist <strong class="text-text">kein Cookie-Banner</strong> nötig.
+          Es werden lediglich aggregierte, anonymisierte Nutzungsdaten erhoben.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">4. Hosting &amp; Server-Logdaten</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Unsere Website wird in der Schweiz gehostet. Beim Aufruf der Website werden vom
+          Hosting-Anbieter übliche Server-Logdaten (z. B. IP-Adresse, Datum, aufgerufene Seite)
+          verarbeitet. Diese dienen ausschliesslich der Sicherheit und dem Betrieb der Website.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">5. Deine Rechte</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Dir stehen im Rahmen des DSG Auskunfts-, Berichtigungs- und Löschungsrechte zu. Wende dich
+          dazu einfach an uns ({client.email}). Wir kommen deinem Anliegen gerne nach.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-h3 font-semibold text-text">6. Verantwortliche Stelle</h2>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          {brand.name}<br />
+          {client.address.lineOne}<br />
+          {client.address.zip} {client.address.city}<br />
+          E-Mail: {client.email}
+        </p>
+      </div>
+
+      <p class="text-xs text-text-muted">
+        Diese Datenschutzerklärung wird vor dem Go-Live finalisiert und bei Bedarf laufend angepasst.
+      </p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

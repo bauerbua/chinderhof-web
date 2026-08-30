@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import { Image } from 'astro:assets';
+import { brand } from '../config/brand';
+
+import { aboutImage } from '../config/images';
+import cow from '../assets/images/gallery/cow.jpg';
+import goat from '../assets/images/gallery/goat.jpg';
+
+const tiere = [
+  { name: 'Hofhund Lora', beschreibung: 'Der Liebling von Gross und Klein.' },
+  { name: 'Ziegen Seppli, Trini, Tina, Lola & Luki', beschreibung: 'Die Zwergziegen lieben hartes Brot!' },
+  { name: 'Minipigs Elvira & Otto', beschreibung: 'Unsere Hängebauchschweine haben ihren festen Platz im Herzen.' },
+  { name: 'Kaninchen', beschreibung: 'Die wohnen im Geissengehege und machen den Hof zum Spazierziel.' },
+  { name: 'Hühnervolk', beschreibung: 'Klein, aber fein – und Grundlage unserer Freilandeier.' },
+];
+---
+
+<BaseLayout
+  title="Über uns"
+  description={`Wer steckt hinter dem ${brand.name}? Eine Emmentalerfamilie, eine Betriebszweigegemeinschaft und viele Tiere – lerne uns kennen.`}
+>
+  <Header slot="header" />
+
+  <Banner title="Über uns" />
+
+  <!-- Story -->
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image
+          src={aboutImage}
+          alt="Hofsphäre des Chinderhofs im Emmental"
+          width={800}
+          height={600}
+          loading="lazy"
+          decoding="async"
+          class="size-full object-cover"
+        />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Wer wir sind</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Eine waschechte Emmentalerfamilie</h2>
+        <p class="text-text-muted leading-relaxed">
+          Wir sind eine Emmentalerfamilie und lieben das hügelige Land rund um Langnau. Mit unseren vier
+          Kindern (11–23 Jahre) bewirtschaften wir zusammen mit der Familie Daniel &amp; Elisabeth
+          Scheidegger in einer <strong class="text-text">Betriebszweigegemeinschaft</strong> einen
+          Landwirtschaftsbetrieb mit Milchvieh, Saatkartoffeln, Silomais, Getreide und Rüben.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Neben der Landwirtschaft unterrichtet die Frau des Hofs an der Schule in der Gemeinde
+          Rüderswil ein Teilpensum in Gestalten und Sport. In der Freizeit sind wir gerne draussen,
+          lieben Segelausflüge auf dem Neuenburgersee und geniessen unsere schöne Umgebung.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Betrieb -->
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Unser Betrieb</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Wofür wir stehen</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-h3 font-semibold text-text">Milchvieh &amp; Emmentaler</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">
+            In einem modernen Laufstall halten wir Milchkühe – zusammen mit Aufzuchtrindern und
+            Kälbern, die sich frei bewegen können. Gemolken wird im 2×4er Fischgrätenmelkstand.
+            Im Sommer sind alle Tiere auf der Weide, im Winter gibt es ausschliesslich Heu –
+            so entsteht aus unserer Milch echter Emmentaler-Käse.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-h3 font-semibold text-text">Ackerbau &amp; Hof</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">
+            Auf den Äckern wachsen Saatkartoffeln, Getreide, Silomais und Futterrüben. Der Wald
+            liefert Baustoff und Energie, und im „Hoschtert" reifen die Äpfel für unseren eigenen
+            Most. So ist der Hof jeden Monat im Einsatz – das ganze Jahr.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-h3 font-semibold text-text">Lernende &amp; Zukunft</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">
+            Wir bilden Lernende aus und bieten die <strong class="text-text">Lehre Landwirt/in
+            EFZ oder EBA</strong> im ersten oder zweiten Lehrjahr an. So geben wir unser Wissen an
+            die nächste Generation weiter – vom Umgang mit den Tieren bis zur Arbeit auf dem Feld.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-h3 font-semibold text-text">Kleintiere &amp; Familien</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">
+            Kühe, Ziegen, Minipigs, Kaninchen, Hühner und Hofhund Lora – mit unseren Tieren ist der
+            Hof ein beliebtes Spazierziel für Familien aus der näheren Umgebung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiere -->
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Auf dem Hof zu Hause</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Unsere Tiere</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {tiere.map(({ name, beschreibung }) => (
+          <div class="flex items-start gap-4 rounded-lg border border-border bg-surface p-5">
+            <svg class="mt-0.5 size-5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
+              <p class="mt-1 text-sm text-text-muted leading-relaxed">{beschreibung}</p>
+            </div>
+          </div>
+        ))}
+
+        <div class="flex items-center gap-4 overflow-hidden rounded-lg border border-border bg-surface p-5">
+          <div class="flex-1">
+            <h3 class="font-heading text-lg font-semibold text-text">Unser Hof im Bild</h3>
+            <p class="mt-1 text-sm text-text-muted leading-relaxed">
+              Viele weitere Eindrücke findest du auf den Angebotsseiten.
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <Image src={cow} alt="Milchkuh auf der Weide" width={120} height={90} loading="lazy" class="size-20 rounded-md object-cover" />
+            <Image src={goat} alt="Zwergziege" width={120} height={90} loading="lazy" class="size-20 rounded-md object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Besuch uns auf dem Hof"
+    description="Ob Freilandeier-Abo, Kindernachmittag oder eine Frage zu unseren Produkten – sprich uns an, wir freuen uns."
+    buttonText="Zum Kontakt"
+    buttonHref="/kontakt"
+  />
+
+  <Footer slot="footer" />
+</BaseLayout>
