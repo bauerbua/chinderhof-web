@@ -8,6 +8,7 @@ import Icon from '../components/Icon.astro';
 import type { IconName } from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
+import { umzug } from '../config/umzug';
 
 import { aboutImage } from '../config/images';
 import cow from '../assets/images/gallery/cow.jpg';
@@ -61,6 +62,36 @@ const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
       </div>
     </div>
   </section>
+
+  {umzug.aktiv && (
+    <section class="bg-surface py-section">
+      <div class="mx-auto max-w-site px-4 sm:px-6">
+        <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div class="space-y-5">
+            <span class="text-topper font-bold uppercase tracking-widest text-primary">Unsere Geschichte</span>
+            <h2 class="font-heading text-h2 font-semibold text-text">{umzug.ueberUnsTitel}</h2>
+            <p class="text-text-muted leading-relaxed">
+              Der Betrieb „<strong class="text-text">{umzug.oldBetriebName}</strong>" ({umzug.altStandort})
+              ist in den Chinderhof übergegangen: Ein Hof ist hierher umgezogen, und alles, was dort
+              bisher hergestellt wurde, wird jetzt hier weitergeführt – mit den gleichen Händen, dem
+              gleichen Handwerk und dem gleichen Blick für Qualität.
+            </p>
+            <p class="text-text-muted leading-relaxed">
+              Für alle bisherigen Kund:innen ändert sich nichts: Die Produkte bleiben, der Weg führt
+              nur neu über den Hofplatz des Chinderhofs.
+            </p>
+          </div>
+          <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+            <h3 class="font-heading text-h3 font-semibold text-text">Bis bald im Emmental!</h3>
+            <p class="mt-2 text-text-muted leading-relaxed">
+              Wer vom bisherigen Hof kommt, landet auf dieser Website automatisch – alle alten Links
+              führen zu uns. Schau dich in Ruhe um, du bist herzlich willkommen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Betrieb -->
   <section class="bg-surface py-section">
