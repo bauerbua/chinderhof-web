@@ -43,7 +43,7 @@ Regeln:
 - **Keine** eigene Blog-Sektion (Bootstrap-Vorlage mit Blog komplett entfernt).
 - **Keine** separate Galerie-Seite – Fotos werden direkt in die Unterseiten eingebunden.
 - Die vier Angebotsseiten werden **content-driven** aus einer Content-Collection (`angebote`) erzeugt, damit Texte/Preise ohne Code-Anpassung pflegbar sind.
-- Finale Seitennamen/Slugs können noch angepasst werden (offene Entscheidung, siehe §10).
+- Finale Seitennamen/Slugs können noch angepasst werden.
 
 ## 4. Seiten-Inhalte (Kurz-Spec)
 
@@ -113,17 +113,7 @@ Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1
 - **Impressum** und **Datenschutzerklärung** (DSG Schweiz) als Seiten vorhanden; konkrete Angaben sind noch mit Platzhaltern hinterlegt.
 - **Kein Cookie-Banner:** PostHog läuft **cookieless** (In-Memory-Persistence), Einwilligungs-Cookies werden nicht gesetzt.
 
-## 10. Offene Entscheidungen (vor Go-Live klären)
-
-1. Finale Seiten-Namen/Slugs („Kindernachmittage" vs. „Kinderprogramm").
-2. Hosting-Anbieter & Domain-Finalisierung (`chinderhof.ch`).
-3. Konkrete Kontaktdaten (Telefon, E-Mail, Adresse + PLZ) für Kontakt/Impressum.
-4. Details zum Kinderprogramm (Alter, Rhythmus, Inhalte) – Seite spielraumfähig gebaut.
-5. Keyword-Finalisierung.
-6. Geteilte Liste festlegen (Google Sheets o. Ä.) und PostHog-Workflow konfigurieren.
-7. Bereitstellung der echten Hof-Fotos (Platzhalter ersetzen).
-
-## 11. Nicht-Ziele (Scope dieses Projekts)
+## 10. Nicht-Ziele (Scope dieses Projekts)
 
 - **Kein** Webshop / Online-Bezahlung.
 - **Keine** automatisierte Rechnungsstellung.
@@ -131,21 +121,12 @@ Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1
 - **Keine** eigene Galerie-Seite.
 - **Keine** Mitglieder-/Login-Funktionen; keine Chat-Features.
 
-## 12. Zukunfts-Roadmap (nicht Teil dieses Builds)
+## 11. Zukunfts-Roadmap (nicht Teil dieses Builds)
 
 - Webshop (eier-abo-basierte Produkte, Direktverkauf).
 - Automatisierte Rechnungsstellung nach Bestätigung.
 - CRM-Anbindung & automatisierte Bestätigungs-E-Mails.
 - Abo-Verwaltung (Pausen, Mengenänderungen, Lieferrouten).
-
-## 13. „Definition of Done" für Agenten
-
-- Alle Seiten existieren als statische, barrierefreie Seiten; Blog-Sektion und Vorlagen-Inhalte (Plumber/Sanitär) vollständig entfernt.
-- `brand.ts`, `client.ts`, `astro.config.mjs` und `theme.css` auf Chinderhof umgestellt.
-- Fotos lokal integriert und optimiert.
-- PostHog-Loader cookieless eingebunden; Formulare senden strukturierte Events.
-- SEO: Sitemap, Robots, JSON-LD, Meta, Alt-Texte gesetzt; Performance/SEO-Anforderungen eingehalten.
-- Diese README bleibt aktuell; Ausbaupunkte sind dokumentiert.
 
 ---
 
