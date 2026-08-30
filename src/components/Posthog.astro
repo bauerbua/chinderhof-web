@@ -1,0 +1,41 @@
+---
+/**
+ * Posthog — cookieless Analytics-/Formular-Loader.
+ *  - persistence: 'memory'  → es wird KEIN Cookie / kein localStorage gesetzt
+ *  - autocapture & pageview  → aus, es werden nur explizite Events gesendet
+ *
+ * Konfiguration über Env-Variablen (siehe README §7):
+ *   PUBLIC_POSTHOG_KEY
+ *   PUBLIC_POSTHOG_HOST  (Default: https://eu.i.posthog.com)
+ */
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY as string | undefined;
+const posthogHost = (import.meta.env.PUBLIC_POSTHOG_HOST as string | undefined) || 'https://eu.i.posthog.com';
+---
+
+{posthogKey && (
+  <script is:inline define:vars={{ key: posthogKey, host: posthogHost }}>
+    (function () {
+      if (window.__posthogLoaded || window.posthog?.__loaded) return;
+      window.__posthogLoaded = true;
+      var s = document.createElement('script');
+      s.src = host + '/static/array.js';
+      s.async = true;
+      s.onload = function () {
+        if (window.posthog && !window.posthog.__loaded) {
+          window.posthog.init(key, {
+            api_host: host,
+            persistence: 'memory',
+            autocapture: false,
+            capture_pageview: false,
+            disable_surveys: true,
+            loaded: function () {
+              window.__posthogReady = true;
+            },
+          });
+          window.posthog.__loaded = true;
+        }
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+)}

@@ -1,0 +1,210 @@
+---
+/**
+ * AnmeldeFormular — statisches Formular, das die Anfrage als strukturiertes
+ * Event an PostHog sendet (cookieless). Für den Workflow → siehe README §6.
+ */
+
+type FormType = 'eier-abo' | 'kinderprogramm' | 'b2b' | 'kontakt';
+
+interface Field {
+  name: string;
+  label: string;
+  type: 'text' | 'email' | 'tel' | 'number' | 'select' | 'textarea';
+  required?: boolean;
+  autocomplete?: string;
+  placeholder?: string;
+  options?: string[];
+}
+
+interface Props {
+  type: FormType;
+  titel: string;
+  beschreibung?: string;
+  submitLabel?: string;
+}
+
+const eventNames: Record<FormType, string> = {
+  'eier-abo': 'eier_abo_anfrage',
+  'kinderprogramm': 'kinderprogramm_anmeldung',
+  'b2b': 'b2b_anfrage',
+  'kontakt': 'kontakt_anfrage',
+};
+
+const fieldsets: Record<FormType, Field[]> = {
+  'eier-abo': [
+    { name: 'name', label: 'Name', type: 'text', required: true, autocomplete: 'name' },
+    { name: 'email', label: 'E-Mail', type: 'email', required: true, autocomplete: 'email' },
+    { name: 'telefon', label: 'Telefon', type: 'tel', autocomplete: 'tel' },
+    { name: 'ort', label: 'Ort / PLZ (für Lieferung)', type: 'text', autocomplete: 'postal-code' },
+    { name: 'lieferart', label: 'Lieferart', type: 'select', required: true, options: ['Abholung am Hof', 'Lieferung'] },
+    { name: 'menge', label: 'Gewünschte Menge & Rhythmus', type: 'text', required: true, placeholder: 'z. B. 10er pro Woche' },
+    { name: 'start', label: 'Wunsch-Start', type: 'text', placeholder: 'z. B. ab sofort' },
+    { name: 'nachricht', label: 'Nachricht', type: 'textarea' },
+  ],
+  'kinderprogramm': [
+    { name: 'name', label: 'Name der erziehungsberechtigten Person', type: 'text', required: true, autocomplete: 'name' },
+    { name: 'email', label: 'E-Mail', type: 'email', required: true, autocomplete: 'email' },
+    { name: 'telefon', label: 'Telefon', type: 'tel', autocomplete: 'tel' },
+    { name: 'kindalter', label: 'Kind(er) & Alter', type: 'text', required: true, placeholder: 'z. B. Mia, 5 Jahre – Luca, 8 Jahre' },
+    { name: 'anzahl', label: 'Anzahl Kinder', type: 'number', required: true, placeholder: '1' },
+    { name: 'nachmittag', label: 'Gewünschter Nachmittag', type: 'text', placeholder: 'z. B. Mittwoch / nach Absprache' },
+    { name: 'nachricht', label: 'Nachricht', type: 'textarea' },
+  ],
+  'b2b': [
+    { name: 'firma', label: 'Firmenname', type: 'text', required: true },
+    { name: 'ansprechperson', label: 'Ansprechperson', type: 'text', required: true },
+    { name: 'email', label: 'E-Mail', type: 'email', required: true, autocomplete: 'email' },
+    { name: 'telefon', label: 'Telefon', type: 'tel' },
+    { name: 'produkt', label: 'Produkt-Interesse', type: 'select', required: true, options: ['Milch für Käserei', 'Emmentaler', 'Saatkartoffeln', 'Getreide', 'Silomais', 'Futterrüben', 'Sonstiges'] },
+    { name: 'menge', label: 'Benötigte Menge', type: 'text', placeholder: 'z. B. 5 kg / Woche' },
+    { name: 'nachricht', label: 'Nachricht', type: 'textarea' },
+  ],
+  'kontakt': [
+    { name: 'name', label: 'Name', type: 'text', required: true, autocomplete: 'name' },
+    { name: 'email', label: 'E-Mail', type: 'email', required: true, autocomplete: 'email' },
+    { name: 'telefon', label: 'Telefon', type: 'tel', autocomplete: 'tel' },
+    { name: 'nachricht', label: 'Nachricht', type: 'textarea', required: true },
+  ],
+};
+
+const {
+  type,
+  titel,
+  beschreibung,
+  submitLabel = 'Anfrage senden',
+} = Astro.props;
+
+const fields = fieldsets[type];
+const eventName = eventNames[type];
+const inputClass =
+  'min-h-[44px] rounded-md border border-border bg-background px-4 py-2.5 text-text transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20';
+const textareaClass =
+  'min-h-[120px] rounded-md border border-border bg-background px-4 py-2.5 text-text transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 resize-y';
+---
+
+<section
+  class="rounded-lg border border-border bg-surface p-6 shadow-sm sm:p-8"
+  id={`formular-${type}`}
+  data-formular
+  data-event={eventName}
+  data-type={type}
+>
+  <h2 class="font-heading text-h2 font-bold uppercase text-text">{titel}</h2>
+  {beschreibung && <p class="mt-2 mb-6 text-text-muted leading-relaxed">{beschreibung}</p>}
+
+  <form data-form novalidate class="flex flex-col gap-5">
+    <p class="hidden" aria-hidden="true">
+      <label>
+        Bitte leer lassen:
+        <input name="website" type="text" tabindex="-1" autocomplete="off" />
+      </label>
+    </p>
+
+    {fields.map((field) => (
+      <label class="flex flex-col gap-1.5" key={field.name}>
+        <span class="text-sm font-medium text-text">
+          {field.label}
+          {field.required && <span class="text-accent" aria-hidden="true"> *</span>}
+        </span>
+
+        {field.type === 'select' ? (
+          <select name={field.name} required={field.required} class={inputClass}>
+            <option value="" disabled selected>Bitte wählen…</option>
+            {field.options?.map((option) => (
+              <option value={option}>{option}</option>
+            ))}
+          </select>
+        ) : field.type === 'textarea' ? (
+          <textarea
+            name={field.name}
+            rows={5}
+            placeholder={field.placeholder}
+            class={textareaClass}
+          ></textarea>
+        ) : (
+          <input
+            type={field.type}
+            name={field.name}
+            required={field.required}
+            autocomplete={field.autocomplete}
+            placeholder={field.placeholder}
+            inputmode={field.type === 'tel' ? 'tel' : undefined}
+            min={field.type === 'number' ? 1 : undefined}
+            class={inputClass}
+          />
+        )}
+      </label>
+    ))}
+
+    <button
+      type="submit"
+      class="mt-2 inline-flex min-h-[44px] cursor-pointer items-center justify-center self-start rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      {submitLabel}
+    </button>
+
+    <p class="text-xs text-text-muted">
+      Deine Angaben werden ausschliesslich zur Bearbeitung deiner Anfrage verwendet. Mit dem Absenden
+      nimmst du unsere Datenschutzerklärung zur Kenntnis.
+    </p>
+  </form>
+
+  <div data-erfolg hidden class="rounded-md border border-primary/30 bg-primary/5 p-6 text-center">
+    <div class="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-accent/15">
+      <svg class="size-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <h3 class="font-heading text-lg font-semibold text-text">Danke für deine Anfrage!</h3>
+    <p class="mt-2 text-sm text-text-muted leading-relaxed">
+      Deine Anfrage ist bei uns eingegangen. Wir bestätigen dir die Teilnahme bzw. Abo-Aufnahme
+      persönlich – melde dich bei Fragen jederzeit direkt bei uns.
+    </p>
+  </div>
+</section>
+
+<script data-astro-rerun>
+  (() => {
+    const root = document.querySelector<HTMLElement>('[data-formular]');
+    if (!root) return;
+    if (root.dataset.formInit === 'true') return;
+    root.dataset.formInit = 'true';
+
+    const form = root.querySelector<HTMLFormElement>('form[data-form]');
+    const erfolg = root.querySelector<HTMLElement>('[data-erfolg]');
+    if (!form || !erfolg) return;
+
+    const eventName = root.dataset.event || 'formular_anfrage';
+    const type = root.dataset.type || '';
+
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+
+      // Honeypot – Spam-Bots ausfiltern
+      const honeypot = form.querySelector<HTMLInputElement>('input[name="website"]');
+      if (honeypot?.value) return;
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data: Record<string, string> = {};
+      new FormData(form).forEach((value, key) => {
+        data[key] = String(value);
+      });
+      data.type = type;
+
+      const posthog = (window as unknown as { posthog?: { capture: (e: string, p: unknown) => void } }).posthog;
+
+      if (posthog) {
+        posthog.capture(eventName, data);
+      } else {
+        console.warn('[Chinderhof] PostHog ist nicht konfiguriert – Anfrage konnte nicht gesendet werden.', data);
+      }
+
+      form.hidden = true;
+      erfolg.hidden = false;
+    });
+  })();
+</script>

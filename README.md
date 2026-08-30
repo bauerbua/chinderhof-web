@@ -1,0 +1,173 @@
+# Chinderhof – Projektbeschreibung
+
+> **Status:** Entwurf / im Aufbau. Hosting, Domain und konkrete Kontaktdaten sind noch nicht final definiert (mit Platzhaltern hinterlegt).
+
+---
+
+## 1. Vision
+
+Der **Chinderhof** ist ein Familienbetrieb im Emmental (Gegend um **Langnau im Emmental**, Kanton Bern). Die Website soll den Hof als **sympathische, authentische und moderne Landwirtschaft** präsentieren – nahbar, ehrlich und mit **Schweizerdeutsch-Touch**. Sie ist das digitale Schaufenster des Hofs und macht das Angebot sichtbar:
+
+- **Transparenz & Werte:** Wie wir Tiere halten (Laufstall, Weide, Heufütterung), was wir anbauen, wer hinter dem Betrieb steht.
+- **Verkauf & Anmeldung:** Abo-Bestellungen (Freilandeier) und Anmeldungen (Kindernachmittage) mit einem kurzen, unkomplizierten Workflow.
+- **Lokale Sichtbarkeit:** Starke lokale SEO, damit Familien und Abnehmer aus der Region den Hof finden.
+
+Tonfall: **herzlich, bodenständig, modern**. Keine klassische Werbesprache – der Chinderhof spricht in Hochdeutsch mit regionalen Akzenten (z. B. „Hoschtert", „Loppigen" nur wo passend), wie die Emmentaler Familie, die er ist.
+
+## 2. Der Betrieb (Fakten für Inhalte)
+
+- **Betriebszweigegemeinschaft:** Familie Chinderhof (Fritz & Frau, 4 Kinder, 11–23 Jahre) gemeinsam mit Familie **Daniel & Elisabeth Scheidegger**.
+- **Milchvieh:** Moderner Laufstall, 2×4er Fischgrätenmelkstand, im Sommer Weide, im Winter **reines Heu** – Grundlage für echten **Emmentaler-Käse**. Auch Aufzuchtrinder und Kälber in Laufställen, viel Freilauf.
+- **Ackerbau:** Saatkartoffeln, Getreide, Silomais, Futterrüben.
+- **Wald:** Baustoff & Energie.
+- **Obst:** „Hoschtert" – Äpfel für Most.
+- **Kleintiere (Herzstück für Familien):** Hofhund **Lora**, kleines Hühnervolk (Freilandeier), Minipigs **Elvira & Otto**, Zwergziegen **Seppli, Trini, Tina, Lola, Luki**, Kaninchen. Der Hof ist ein beliebtes **Spazierziel**.
+- **Lernende:** Lehre **Landwirt/in EFZ oder EBA** (1./2. Lehrjahr).
+- **Familie:** Die Frau unterrichtet Teilpensum Gestalten & Sport in der Gemeinde Rüderswil.
+
+## 3. Zielgruppen
+
+| Zielgruppe | Bedürfnis / Ziel |
+|---|---|
+| Lokale Privatkund:innen | Freilandeier-Abo, Abholung am Hof oder Lieferung |
+| Familien / Eltern | Kindernachmittage, Kinderprogramm, Tagesausflug, Tiere erleben |
+| B2B / Abnehmer | Milch & Emmentaler (Käserei-Abnehmer), Ackerbau-Erzeugnisse |
+
+## 4. Seitenstruktur (Routes)
+
+Statische Astro-Routen:
+
+| Route | Seite | Zweck |
+|---|---|---|
+| `/` | Home | Überblick Hof, Angebote, Bilder, CTA |
+| `/freilandeier` | Freilandeier | Abo-Angebot + Anmelde-Formular |
+| `/milchproduktion` | Milchproduktion | Werte & Transparenz + B2B-Anfrage |
+| `/kinderprogramm` | Kindernachmittage / Kinderprogramm | Angebot + Anmelde-Formular |
+| `/ackerbau` | Ackerbau | Anbau, Produkte, Saisonalität |
+| `/ueber-uns` | Über uns | Familie, Geschichte, Betrieb, Kleintiere, Lernende |
+| `/kontakt` | Kontakt | Adresse, Telefon, E-Mail, Anfahrt, Kontaktformular |
+| `/impressum` | Impressum | Rechtliches |
+| `/datenschutz` | Datenschutz | DSG-konform (PostHog cookieless) |
+
+Regeln:
+
+- **Keine** eigene Blog-Sektion (Bootstrap-Vorlage mit Blog komplett entfernt).
+- **Keine** separate Galerie-Seite – Fotos werden direkt in die Unterseiten eingebunden.
+- Die vier Angebotsseiten werden **content-driven** aus einer Content-Collection (`angebote`) erzeugt, damit Texte/Preise ohne Code-Anpassung pflegbar sind.
+- Finale Seitennamen/Slugs können noch angepasst werden (offene Entscheidung, siehe §11).
+
+## 5. Seiten-Inhalte (Kurz-Spec)
+
+- **Home:** Hero-Bild, Willkommen mit Emmentaler-Charme, Highlight-Leiste (Weidehaltung, Heufütterung, Emmentaler, Freilandeier), 4 Angebots-Karten, Familien-Vorstellung, eingebundene Fotos, CTA „Eier-Abo bestellen" / „Kinderprogramm anmelden".
+- **Freilandeier:** Haltung (Weide, überschaubares Hühnervolk), Abo-Modalitäten (Abholung am Hof oder Lieferung), **Anmelde-Formular** (§6).
+- **Milchproduktion:** Laufstall, Weide im Sommer, reine Heufütterung im Winter, Emmentaler-Produktion, Betriebszweigegemeinschaft, Lernende. **B2B-Anfrageformular** (§6).
+- **Kindernachmittage:** Zielgruppe/Alter, Inhalte, Treffpunkt, **Anmelde-Formular** (§6). Konkrete Details sind noch offen – die Seite ist so gebaut, dass Inhalte später einfach angepasst werden können.
+- **Ackerbau:** Saatkartoffeln, Getreide, Silomais, Futterrüben; Wald & Hoschtert.
+- **Über uns:** „Waschechte Emmentalerfamilie", Familie + Scheidegger-Betriebszweigegemeinschaft, Tiere (Lora, Elvira & Otto, Ziegen, Kaninchen), Lernende/Lehrstellen.
+- **Kontakt:** Adresse (Hof, PLZ, Langnau im Emmental), Telefon, E-Mail, Anfahrt, einfaches Kontaktformular.
+
+## 6. Anmelde- & Anfrage-Workflow (MVP)
+
+Vier Formulare, alle über **PostHog (cookieless)** integriert:
+
+1. **Eier-Abo:** Name, E-Mail, Telefon (optional), Ort/PLZ (für Lieferung), Lieferart (Abholung am Hof / Lieferung), gewünschte Menge & Rhythmus, Wunsch-Start, Nachricht.
+2. **Kindernachmittag:** Erziehungsberechtigte (Name, E-Mail, Telefon), Kindername + Alter, Anzahl Kinder, gewünschter Nachmittag, Nachricht.
+3. **B2B-Anfrage (Milch/Ackerbau):** Firmenname, Ansprechperson, E-Mail, Produkt-Interesse, Menge, Nachricht.
+4. **Kontakt:** Name, E-Mail, Telefon (optional), Nachricht.
+
+**Ablauf MVP:**
+1. Das Formular wird clientseitig als strukturiertes Event an PostHog gesendet – die Website bleibt dadurch **vollständig statisch** (kein Server nötig).
+2. Der PostHog-Workflow (Pipeline/Hog-Function) sendet eine **E-Mail an die Besitzerinnen** und trägt die Anfrage in eine **geteilte Liste** ein (MVP z. B. Google Sheets).
+3. Die Besitzerinnen bestätigen die Anfrage manuell; die Interessent:in wird im finalen Ausbau automatisch informiert.
+
+**Architektur-Hinweis (wichtig für Agenten):** Die Anfrage wird als **strukturiertes Event** mit sauberen Property-Namen gesendet (`type`, `name`, `email`, `lieferart`, …). So kann später – ohne Änderung am Formularcode – eine **automatisierte Bestätigungs-E-Mail**, eine **CRM-Anbindung** sowie Webshop / **automatisierte Rechnungsstellung** ergänzt werden.
+
+**Konfiguration:** Der PostHog-Key wird über die Umgebungsvariable `PUBLIC_POSTHOG_KEY` gesetzt (plus optional `PUBLIC_POSTHOG_HOST`). Ohne Key läuft die Seite im „Demo-Modus" (Formular zeigt Erfolg, Log-Ausgabe) – für Build/Preview ohne Backend.
+
+## 7. Technischer Stack
+
+| Bereich | Vorgabe |
+|---|---|
+| Framework | **Astro (v6/v7, vorhanden)** – statischer Build (`output: 'static'`) |
+| Styling | **Tailwind CSS v4** (Vite-Plugin, vorhanden) |
+| Fonts | **Oswald** (Display) + **Inter** (Body) via Astro-Font-Optimizer |
+| SEO | `@astrojs/sitemap`, `astro-robots-txt`, JSON-LD (Schema.org `LocalBusiness`/`Farm`), Open-Graph-Meta, Canonicals |
+| Analytics | **PostHog – cookieless** konfiguriert (`persistence: 'memory'`, kein `localStorage`-Cookie), daher **kein Cookie-Banner** nötig (DSG-konform) |
+| Bilder | Lokale Bilder unter `src/assets/images/{hero,about,gallery}/`, automatisch von Astro optimiert (WebP/AVIF, srcset) |
+| Inhalte | Content-Collection `angebote` (`src/content/angebote/*.md`) mit Zod-Schema |
+| Deployment | Statisch, **gehostet in der Schweiz** – Anbieter/Domain offen (Domaine `chinderhof.ch` existiert) |
+
+## 8. Design & Marke
+
+- Logo & Fotos sind vorhanden (vom bestehenden Auftritt) – werden nachgeliefert/ersetzt. Aktuell dienen lokale Platzhalter-Fotos.
+- Warme, natürliche Farbpalette (Waldgrün `#2F5D2A`, Heu-Gold `#D99E2B`, helle, warme Flächen) – definiert in `src/config/brand.ts` + `src/styles/theme.css`.
+- Mobile-First, schnelle Ladezeiten (Core Web Vitals), View-Transitions für sanfte Navigation.
+- Schweizerdeutsch-Touch in Infotexten; Gesamttext Deutsch (Hochdeutsch).
+
+## 9. SEO & Auffindbarkeit
+
+Vorgeschlagene Fokus-Keywords (basierend auf Zielgruppen & Standort):
+
+- Freilandeier: `Freilandeier Langnau`, `Eier Abo Emmental`, `Eier ab Hof` · `Eier Abo`
+- Kinderprogramm: `Kindernachmittag Bauernhof`, `Kinderprogramm Emmental`, `Bauernhof Spazierziel Langnau`
+- Milchproduktion: `Emmentaler Hof`, `Milchvieh Laufstall Heufütterung`, `Lehrstelle Landwirt Emmental`
+- B2B: `Milch für Käserei`, `Saatkartoffeln Emmental`, `Betriebszweigegemeinschaft Emmental`
+
+Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1 pro Seite, saubere Überschriften-Hierarchie, beschreibende Metadaten, Alt-Texte, Sitemap, Robots.txt.
+
+## 10. Rechtliches
+
+- **Impressum** und **Datenschutzerklärung** (DSG Schweiz) als Seiten vorhanden; konkrete Angaben sind noch mit Platzhaltern hinterlegt.
+- **Kein Cookie-Banner:** PostHog läuft **cookieless** (In-Memory-Persistence), Einwilligungs-Cookies werden nicht gesetzt.
+
+## 11. Offene Entscheidungen (vor Go-Live klären)
+
+1. Finale Seiten-Namen/Slugs („Kindernachmittage" vs. „Kinderprogramm").
+2. Hosting-Anbieter & Domain-Finalisierung (`chinderhof.ch`).
+3. Konkrete Kontaktdaten (Telefon, E-Mail, Adresse + PLZ) für Kontakt/Impressum.
+4. Details zum Kinderprogramm (Alter, Rhythmus, Inhalte) – Seite spielraumfähig gebaut.
+5. Keyword-Finalisierung.
+6. Geteilte Liste festlegen (Google Sheets o. Ä.) und PostHog-Workflow konfigurieren.
+7. Bereitstellung der echten Hof-Fotos (Platzhalter ersetzen).
+
+## 12. Nicht-Ziele (Scope dieses Projekts)
+
+- **Kein** Webshop / Online-Bezahlung.
+- **Keine** automatisierte Rechnungsstellung.
+- **Kein** Blog.
+- **Keine** eigene Galerie-Seite.
+- **Keine** Mitglieder-/Login-Funktionen; keine Chat-Features.
+
+## 13. Zukunfts-Roadmap (nicht Teil dieses Builds)
+
+- Webshop (eier-abo-basierte Produkte, Direktverkauf).
+- Automatisierte Rechnungsstellung nach Bestätigung.
+- CRM-Anbindung & automatisierte Bestätigungs-E-Mails.
+- Abo-Verwaltung (Pausen, Mengenänderungen, Lieferrouten).
+
+## 14. „Definition of Done" für Agenten
+
+- Alle Seiten existieren als statische, barrierefreie Seiten; Blog-Sektion und Vorlagen-Inhalte (Plumber/Sanitär) vollständig entfernt.
+- `brand.ts`, `client.ts`, `astro.config.mjs` und `theme.css` auf Chinderhof umgestellt.
+- Fotos lokal integriert und optimiert.
+- PostHog-Loader cookieless eingebunden; Formulare senden strukturierte Events.
+- SEO: Sitemap, Robots, JSON-LD, Meta, Alt-Texte gesetzt; Performance/SEO-Anforderungen eingehalten.
+- Diese README bleibt aktuell; Ausbaupunkte sind dokumentiert.
+
+---
+
+## Entwicklung
+
+```bash
+pnpm install
+pnpm dev        # lokale Entwicklung
+pnpm build      # statischer Build nach dist/
+pnpm preview    # Build lokal ansehen
+```
+
+Umgebungsvariablen:
+
+```bash
+PUBLIC_POSTHOG_KEY=<project_api_key>
+PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
+```

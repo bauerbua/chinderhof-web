@@ -1,0 +1,43 @@
+{
+  "name": "chinderhof",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "A minimal, fast, and fully customisable small-business website template built with Astro 6, Tailwind v4, and Playwright.",
+  "author": "bauerbua",
+  "license": "MIT",
+  "keywords": [
+    "astro",
+    "astro-theme",
+    "astro6",
+    "tailwind",
+    "tailwindcss",
+    "small-business",
+    "starter",
+    "template",
+    "view-transitions",
+    "playwright"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.9",
+    "astro-robots-txt": "^1.0.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
+}

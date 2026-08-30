@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+
+import chicken from '../assets/images/gallery/chicken.jpg';
+import cow from '../assets/images/gallery/cow.jpg';
+import goat from '../assets/images/gallery/goat.jpg';
+import wheat from '../assets/images/gallery/wheat.jpg';
+
+type Angebot = CollectionEntry<'angebote'>;
+
+interface Props {
+  topper?: string;
+  heading?: string;
+  description?: string;
+  angebote: Angebot[];
+}
+
+const covers: Record<string, ImageMetadata> = {
+  freilandeier: chicken,
+  milchproduktion: cow,
+  kinderprogramm: goat,
+  ackerbau: wheat,
+};
+
+const {
+  topper = 'Unser Angebot',
+  heading = 'Das lebt und wächst auf dem Chinderhof',
+  description = 'Vier Stärken, ein Hof – entdecke, was den Chinderhof bei Langnau im Emmental ausmacht.',
+  angebote,
+} = Astro.props;
+---
+
+<section class="bg-surface py-section">
+  <div class="mx-auto max-w-site px-4 sm:px-6">
+    <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+      <span class="text-topper font-bold uppercase tracking-widest text-accent">{topper}</span>
+      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">{heading}</h2>
+      <p class="mt-3 text-text-muted leading-relaxed">{description}</p>
+    </div>
+
+    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
+      {angebote.map(({ slug, data }) => {
+        const cover = covers[slug];
+        return (
+          <li>
+            <a
+              href={`/${slug}`}
+              aria-label={`Mehr über ${data.title}`}
+              class="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-shadow duration-200 hover:shadow-md"
+            >
+              {cover && (
+                <div class="relative aspect-4/3 overflow-hidden">
+                  <Image
+                    src={cover}
+                    alt={`${data.title} auf dem Chinderhof`}
+                    width={600}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    class="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div class="flex flex-1 flex-col p-5">
+                <span class="text-xs font-bold uppercase tracking-widest text-accent">{data.topper}</span>
+                <h3 class="mt-1 font-heading text-h3 font-semibold text-text">{data.title}</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-text-muted">{data.description}</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors group-hover:text-accent">
+                  Mehr erfahren
+                  <svg class="size-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>
