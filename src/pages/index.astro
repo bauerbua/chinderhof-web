@@ -6,6 +6,7 @@ import Hero from '../components/Hero.astro';
 import TrustBar from '../components/TrustBar.astro';
 import AngebotsGrid from '../components/AngebotsGrid.astro';
 import About from '../components/About.astro';
+import Spicker from '../components/Spicker.astro';
 import Gallery from '../components/Gallery.astro';
 import CTA from '../components/CTA.astro';
 import { getCollection } from 'astro:content';
@@ -53,16 +54,18 @@ angebote.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 
   <TrustBar
     items={[
-      { label: 'Weidehaltung im Sommer' },
-      { label: 'Heufütterung im Winter' },
-      { label: 'Echter Emmentaler' },
-      { label: 'Freilandeier vom Hof' },
+      { label: 'Weidehaltung im Sommer', icon: 'sun' },
+      { label: 'Heufütterung im Winter', icon: 'wheat' },
+      { label: 'Echter Emmentaler',      icon: 'cheese' },
+      { label: 'Freilandeier vom Hof',   icon: 'egg' },
     ]}
   />
 
   <AngebotsGrid angebote={angebote} />
 
   <About />
+
+  <Spicker />
 
   <Gallery
     topper="Einblicke"

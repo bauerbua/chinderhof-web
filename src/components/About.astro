@@ -1,17 +1,25 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+import type { IconName } from './Icon.astro';
 import { aboutImage as localAboutImage } from '../config/images';
 
 // Fallback Unsplash URL used until a local image is added to
 // src/assets/images/about/ and registered in src/config/images.ts
 const PLACEHOLDER = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80';
 
+interface Prop {
+  text: string;
+  icon: IconName;
+}
+
 interface Props {
   topper?: string;
   heading?: string;
+  doodleWord?: string;
   body?: string[];
-  benefits?: string[];
+  benefits?: Prop[];
   ctaLabel?: string;
   ctaHref?: string;
   imageSrc?: ImageMetadata | string;
@@ -21,20 +29,29 @@ interface Props {
 const {
   topper = 'Über uns',
   heading = 'Eine waschechte Emmentalerfamilie',
+  doodleWord = 'Emmentalerfamilie',
   body = [
     'Wir sind eine Emmentalerfamilie und lieben das hügelige Land rund um Langnau. Zusammen mit der Familie Scheidegger bewirtschaften wir in einer Betriebszweigegemeinschaft einen Landwirtschaftsbetrieb mit Milchvieh, Saatkartoffeln, Getreide, Mais und Rüben.',
     'Kühe, Ziegen, Minipigs, Kaninchen und Hühner machen unseren Hof zu einem beliebten Spazierziel – und unsere Lernenden zu Landwirtinnen und Landwirten von morgen.',
   ],
   benefits = [
-    'Tierwohl: Laufställe, Weidegang und Heufütterung',
-    'Echter Emmentaler aus unserer Milch',
-    'Lehrbetrieb für zukünftige Landwirtinnen und Landwirte',
+    { text: 'Tierwohl: Laufställe, Weidegang und Heufütterung', icon: 'paw' },
+    { text: 'Echter Emmentaler aus unserer Milch', icon: 'cheese' },
+    { text: 'Lehrbetrieb für zukünftige Landwirtinnen und Landwirte', icon: 'sprout' },
   ],
   ctaLabel = 'Mehr über uns',
   ctaHref = '/ueber-uns',
   imageSrc = localAboutImage ?? PLACEHOLDER,
   imageAlt = 'Die Familie auf dem Chinderhof',
 } = Astro.props;
+
+const hasDoodle = doodleWord && heading.includes(doodleWord);
+const headlineHtml = hasDoodle
+  ? heading.replace(
+      doodleWord,
+      `<span class="doodle-underline">${doodleWord}</span>`,
+    )
+  : heading;
 ---
 
 <section class="py-section">
@@ -55,8 +72,11 @@ const {
 
     <!-- Content -->
     <div class="space-y-5">
-      <span class="text-topper font-bold uppercase tracking-widest text-accent">{topper}</span>
-      <h2 class="font-heading text-h2 font-bold uppercase text-text">{heading}</h2>
+      <span class="text-topper font-bold uppercase tracking-widest text-primary">{topper}</span>
+      <h2
+        class="font-heading text-h2 font-semibold text-text"
+        set:html={headlineHtml}
+      ></h2>
 
       {body.map((paragraph) => (
         <p class="text-text-muted leading-relaxed">{paragraph}</p>
@@ -64,12 +84,10 @@ const {
 
       <!-- Benefits list -->
       <ul class="space-y-3 pt-2" role="list">
-        {benefits.map((benefit) => (
+        {benefits.map(({ text, icon }) => (
           <li class="flex items-start gap-3">
-            <svg class="mt-0.5 size-5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-text">{benefit}</span>
+            <Icon name={icon} class="mt-0.5 size-5 shrink-0 text-terracotta" />
+            <span class="text-text">{text}</span>
           </li>
         ))}
       </ul>
@@ -77,7 +95,7 @@ const {
       <div class="pt-2">
         <a
           href={ctaHref}
-          class="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-bold text-primary-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-bold text-primary-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {ctaLabel}
           <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

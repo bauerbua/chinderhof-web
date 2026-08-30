@@ -1,0 +1,26 @@
+---
+/**
+ * Hügellinie – „Emmentaler Hügel" als Sektions-Übergang (Design-System §5).
+ *
+ * Wird oben in eine Sektion gelegt; fill = Farbe der Sektion davor.
+ * Beispiel (Oben auf einer bg-primary-Sektion setzen):
+ *   <div class="pointer-events-none absolute inset-x-0 top-0 -translate-y-full">
+ *     <Huegellinie fill="var(--color-background)" />
+ *   </div>
+ */
+interface Props {
+  fill?: string;
+}
+
+const { fill = 'var(--color-background)' } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 1440 96"
+  preserveAspectRatio="none"
+  class="block h-10 w-full sm:h-14"
+  fill={fill}
+  aria-hidden="true"
+>
+  <path d="M0 0h1440v44c-240-28-480-44-720-44S240 16 0 44V0z" />
+</svg>

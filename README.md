@@ -79,7 +79,8 @@ Vier Formulare, alle über **PostHog (cookieless)** integriert:
 |---|---|
 | Framework | **Astro (v6/v7, vorhanden)** – statischer Build (`output: 'static'`) |
 | Styling | **Tailwind CSS v4** (Vite-Plugin, vorhanden) |
-| Fonts | **Oswald** (Display) + **Inter** (Body) via Astro-Font-Optimizer |
+| Design-System | siehe **`DESIGN_SYSTEM.md`** (Werte gespiegelt in `src/config/brand.ts` + `src/styles/theme.css`) |
+| Fonts | **Fraunces** (Headings, via Bunny Fonts, DSG-konform) + **Systemschrift** (Body, null Webload) |
 | SEO | `@astrojs/sitemap`, `astro-robots-txt`, JSON-LD (Schema.org `LocalBusiness`/`Farm`), Open-Graph-Meta, Canonicals |
 | Analytics | **PostHog – cookieless** konfiguriert (`persistence: 'memory'`, kein `localStorage`-Cookie), daher **kein Cookie-Banner** nötig (DSG-konform) |
 | Bilder | Lokale Bilder unter `src/assets/images/{hero,about,gallery}/`, automatisch von Astro optimiert (WebP/AVIF, srcset) |
@@ -88,8 +89,11 @@ Vier Formulare, alle über **PostHog (cookieless)** integriert:
 
 ## 7. Design & Marke
 
+> Verbindliche Referenz: **`DESIGN_SYSTEM.md`** – Design-Grundlagen, Tokens, Farb-/Kontrastregeln, Komponenten-Styles und Freigabe-Checkliste für die Besitzerin.
+
 - Logo & Fotos sind vorhanden (vom bestehenden Auftritt) – werden nachgeliefert/ersetzt. Aktuell dienen lokale Platzhalter-Fotos.
-- Warme, natürliche Farbpalette (Waldgrün `#2F5D2A`, Heu-Gold `#D99E2B`, helle, warme Flächen) – definiert in `src/config/brand.ts` + `src/styles/theme.css`.
+- Warme, almenwirtschaftliche Farbpalette (Tannengrün `#2F5D2A`, Heu-Gold `#D9A12B`, Terrakotta `#C2603C`, Rahm `#FAF4E8`) – definiert in `src/config/brand.ts` + `src/styles/theme.css`.
+- Headlines in **Fraunces** (Bunny Fonts), Body in **Systemschrift**; organische Radien, weiche warme Schatten, Hügellinien-Sektionen, eigener Hof-Icon-Satz (`src/components/Icon.astro`), Schweizerdeutsch-Spicker (`Spicker.astro`), Doodle-Hervorhebungen; nur heller Modus.
 - Mobile-First, schnelle Ladezeiten (Core Web Vitals), View-Transitions für sanfte Navigation.
 - Schweizerdeutsch-Touch in Infotexten; Gesamttext Deutsch (Hochdeutsch).
 

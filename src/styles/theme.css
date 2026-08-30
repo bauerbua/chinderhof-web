@@ -1,60 +1,83 @@
 /*
  * ─────────────────────────────────────────────────────────────────────────────
- * THEME — edit src/config/brand.ts to change values, not this file.
+ * THEME — Design-System „Chinderhof" (siehe DESIGN_SYSTEM.md)
  *
- * The @theme block registers Tailwind v4 design tokens as CSS custom
- * properties. After changing brand.ts, update the hex codes below to match.
- *
- * Fonts are injected by Astro 6's built-in font optimizer (astro.config.mjs).
- * The --font-body and --font-display variables are available here automatically.
+ * Gilt als Quelle der Wahrheit für Tokens. Nach Änderung: Build laufen lassen.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
 @theme {
-  /* ── Brand Colors ───────────────────────────────────────────────── */
-  --color-primary:       #2F5D2A;
-  --color-primary-light: #4E7F3E;
+  /* ── Brand Colors (DS §3) ───────────────────────────────────────────── */
+  --color-primary:       #2F5D2A; /* fir       – Tannengrün */
+  --color-primary-dark:  #244A1F; /* fir-deep  – für Hover/Footer/Text-auf-gold */
+  --color-primary-light: #748F63; /* salbei    – nur Flächen */
   --color-primary-fg:    #ffffff;
-  --color-accent:        #D99E2B;
-  --color-accent-fg:     #3A2A00;
 
-  /* ── Neutral Scale ──────────────────────────────────────────────── */
-  --color-background:    #ffffff;
-  --color-surface:       #F6F3EC;
-  --color-border:        #E7E1D4;
-  --color-text:          #211D15;
-  --color-text-muted:    #5C564A;
+  --color-accent:        #D9A12B; /* gold      – Heu-Gold */
+  --color-accent-soft:   #F1DFB0; /* gold-soft – Spicker/Chips */
+  --color-accent-fg:     #244A1F; /* fir-deep Text auf Gold */
+  --color-terracotta:    #C2603C; /* terracotta – Ziegeldach, Icons, Doodle */
 
-  /* ── Dark Mode ──────────────────────────────────────────────────── */
-  --color-dark:          #1E2A18;
+  /* ── Neutrale Scale (DS §3) ──────────────────────────────────────────── */
+  --color-background:    #FDFAF2; /* warm-white */
+  --color-surface:       #FAF4E8; /* cream     */
+  --color-border:        #E9DFC9; /* line      */
+  --color-text:          #2B231A; /* wood      */
+  --color-text-muted:    #6E6659; /* stone     */
+
+  /* ── Footer / Overlays ───────────────────────────────────────────────── */
+  --color-dark:          #244A1F;
   --color-dark-surface:  #2A3A22;
 
-  /* ── Border Radius ──────────────────────────────────────────────── */
-  --radius-sm:   0.375rem;
-  --radius-md:   0.625rem;
-  --radius-lg:   1rem;
+  /* ── Typography (DS §4) ──────────────────────────────────────────────── */
+  --font-heading: "Fraunces", "Georgia", ui-serif, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+
+  /* ── Border Radius – organic (DS §5) ─────────────────────────────────── */
+  --radius-sm:   0.5rem;
+  --radius-md:   0.875rem;
+  --radius-lg:   1.25rem;
+  --radius-xl:   1.75rem;
   --radius-full: 9999px;
 
-  /* ── Fluid Type Scale ───────────────────────────────────────────── */
+  /* ── Shadows – weich & warm (DS §5) ──────────────────────────────────── */
+  --shadow-sm: 0 1px 3px rgb(43 35 26 / 0.08);
+  --shadow-md: 0 4px 14px rgb(43 35 26 / 0.10);
+  --shadow-lg: 0 10px 28px rgb(43 35 26 / 0.13);
+  --shadow-xl: 0 18px 44px rgb(43 35 26 / 0.16);
+
+  /* ── Fluid Type Scale ────────────────────────────────────────────────── */
   --text-topper:  clamp(0.75rem, 1.4vw, 0.875rem);
   --text-body:    1rem;
   --text-lead:    clamp(1.0625rem, 1.8vw, 1.25rem);
   --text-h3:      clamp(1.25rem, 2.2vw, 1.5rem);
   --text-h2:      clamp(1.75rem, 3vw, 2.25rem);
   --text-h1:      clamp(2.25rem, 5vw, 3.5rem);
-  --text-display: clamp(2.75rem, 6vw, 4.5rem);
+  --text-display: clamp(2.4rem, 5.5vw, 4rem);
 
-  /* ── Spacing / Container ────────────────────────────────────────── */
+  /* ── Spacing / Container ─────────────────────────────────────────────── */
   --container-site:  80rem;
   --spacing-section: clamp(3.75rem, 7.82vw, 6.25rem);
 }
 
 /*
- * ── Font wiring ─────────────────────────────────────────────────────────────
- * Astro injects --font-body and --font-display at runtime via the Fonts API.
- * @theme inline emits var() references without trying to resolve at build time.
+ * ── Doodle-Unterstreichung (DS §5) ──────────────────────────────────────────
+ * Verwendung: <span class="doodle-underline">Begriff</span>
  */
-@theme inline {
-  --font-heading: var(--font-display), 'Oswald', ui-sans-serif, system-ui, sans-serif;
-  --font-body:    var(--font-body), 'Inter', ui-sans-serif, system-ui, sans-serif;
+.doodle-underline {
+  position: relative;
+}
+
+.doodle-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 0.34em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 14C40 6 90 4 132 8c34 3 50 6 64 4' fill='none' stroke='%23C2603C' stroke-width='4.5' stroke-linecap='round' opacity='0.75'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+  z-index: 0;
+  pointer-events: none;
 }

@@ -2,11 +2,10 @@
 /**
  * Base layout — wraps every page.
  *
- * Astro 6 features used:
- *  • <Font />         — built-in font optimizer from astro.config.mjs fonts array
+ * Features:
+ *  • Fraunces (Headings) via Bunny Fonts – DSG-konform, kein Google-Tracking
  *  • <ClientRouter /> — client-side navigation with CSS transition animations
  */
-import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import { brand } from '../config/brand';
@@ -59,24 +58,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Fonts -->
-    <Font cssVariable="--font-display" preload />
-    <Font cssVariable="--font-body"    preload />
+    <!-- Fonts (Design-System §4): Fraunces via Bunny Fonts, Body = Systemschrift -->
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.bunny.net/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&display=swap"
+    />
 
     <!-- JSON-LD Structured Data -->
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
-
-    <!-- FOUC prevention for dark mode -->
-    <script is:inline>
-      (function(){
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark-mode');
-        }
-      })();
-    </script>
 
     <slot name="head" />
     <Posthog />

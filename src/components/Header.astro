@@ -27,7 +27,7 @@ const currentPath = Astro.url.pathname;
     <!-- Logo -->
     <a
       href="/"
-      class="font-heading text-xl font-bold uppercase tracking-wide text-primary transition-opacity hover:opacity-80"
+      class="font-heading text-xl font-semibold tracking-wide text-primary transition-opacity hover:opacity-80"
     >
       {brand.name}
     </a>
@@ -98,7 +98,7 @@ const currentPath = Astro.url.pathname;
       </a>
       <a
         href="/freilandeier"
-        class="inline-flex min-h-[44px] items-center rounded-md bg-accent px-5 py-2.5 text-sm font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        class="inline-flex min-h-[44px] items-center rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         Eier-Abo
       </a>
@@ -131,7 +131,7 @@ const currentPath = Astro.url.pathname;
       <a href="/" class="rounded-md px-3 py-3 text-base font-medium text-text-muted hover:bg-surface hover:text-text">
         Home
       </a>
-      <p class="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-widest text-accent">Angebote</p>
+      <p class="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-widest text-primary">Angebote</p>
       {angebote.map(({ label, href }) => (
         <a
           href={href}
@@ -160,7 +160,7 @@ const currentPath = Astro.url.pathname;
       </a>
       <a
         href="/freilandeier"
-        class="flex min-h-[44px] items-center justify-center rounded-md bg-accent px-5 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
+        class="flex min-h-[44px] items-center justify-center rounded-full bg-accent px-5 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
       >
         Eier-Abo bestellen
       </a>

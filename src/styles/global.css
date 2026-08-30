@@ -19,16 +19,9 @@
     color: var(--color-text);
   }
 
-  .dark body,
-  body.dark-mode {
-    background-color: var(--color-dark);
-    color: var(--color-surface);
-  }
-
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
-  body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
-  body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
-    color: var(--color-surface);
+  /* DS §10: Links nie „Link-Blau", immer Tannengrün */
+  .prose a {
+    color: var(--color-primary);
   }
 
   @media (prefers-reduced-motion: reduce) {

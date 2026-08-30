@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
 import AnmeldeFormular from '../components/AnmeldeFormular.astro';
+import Icon from '../components/Icon.astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
@@ -74,7 +75,7 @@ const form = formText[data.form];
   <section class="py-section">
     <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
       <div class="space-y-6">
-        <span class="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-topper font-bold uppercase tracking-widest text-accent">
+        <span class="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-topper font-bold uppercase tracking-widest text-primary">
           {data.topper}
         </span>
         <p class="text-lead text-text-muted leading-relaxed">{data.hero}</p>
@@ -83,9 +84,7 @@ const form = formText[data.form];
           <ul class="space-y-3" role="list">
             {data.highlights.map((highlight) => (
               <li class="flex items-start gap-3">
-                <svg class="mt-0.5 size-5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+                <Icon name="check" class="mt-0.5 size-5 shrink-0 text-terracotta" />
                 <span class="text-text">{highlight}</span>
               </li>
             ))}
@@ -95,12 +94,10 @@ const form = formText[data.form];
         {data.form !== 'none' && form && (
           <a
             href="#formular"
-            class="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-accent px-6 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-accent px-6 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
           >
             {form.submitLabel}
-            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <Icon name="arrow-down" class="size-4" />
           </a>
         )}
       </div>
@@ -124,7 +121,7 @@ const form = formText[data.form];
   <!-- Langtext -->
   <section class="bg-surface py-section">
     <div class="mx-auto max-w-3xl px-4 sm:px-6">
-      <article class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-text prose-headings:uppercase prose-p:text-text-muted prose-a:text-primary prose-strong:text-text">
+      <article class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-text prose-p:text-text-muted prose-a:text-primary prose-strong:text-text">
         <Content />
       </article>
     </div>

@@ -20,37 +20,42 @@ export const brand = {
   locale: 'de_CH',
 
   // ── Fonts ──────────────────────────────────────────────────────────────────
+  // Headings: Fraunces via Bunny Fonts (in BaseLayout). Body: Systemschrift.
   fonts: {
-    body: 'Inter',
-    display: 'Oswald',
+    body: 'system-ui',
+    display: 'Fraunces',
   },
 
-  // ── Colour Palette ─────────────────────────────────────────────────────────
-  // Warm, natural farm colours: forest green + hay gold.
+  // ── Colour Palette (Design-System §3) ─────────────────────────────────────
+  // Almenwirtschaftlich warm: Tannengrün, Rahm, Terrakotta, Heu-Gold.
   colors: {
-    primary:      '#2F5D2A',
-    primaryLight: '#4E7F3E',
+    primary:      '#2F5D2A', // fir
+    primaryDark:  '#244A1F', // fir-deep
+    primaryLight: '#748F63', // salbei
     primaryFg:    '#ffffff',
 
-    accent:       '#D99E2B',
-    accentFg:     '#3A2A00',
+    accent:       '#D9A12B', // gold
+    accentSoft:   '#F1DFB0', // gold-soft
+    accentFg:     '#244A1F', // fir-deep auf Gold
+    terracotta:   '#C2603C', // ziegeldach
 
-    background:   '#ffffff',
-    surface:      '#F6F3EC',
-    border:       '#E7E1D4',
+    background:   '#FDFAF2', // warm-white
+    surface:      '#FAF4E8', // cream
+    border:       '#E9DFC9', // line
 
-    text:         '#211D15',
-    textMuted:    '#5C564A',
+    text:         '#2B231A', // wood
+    textMuted:    '#6E6659', // stone
 
-    dark:         '#1E2A18',
+    dark:         '#244A1F', // Footer (fir-deep)
     darkSurface:  '#2A3A22',
   },
 
-  // ── Border radius ──────────────────────────────────────────────────────────
+  // ── Border radius (organic) ────────────────────────────────────────────────
   radius: {
-    sm:   '0.375rem',
-    md:   '0.625rem',
-    lg:   '1rem',
+    sm:   '0.5rem',
+    md:   '0.875rem',
+    lg:   '1.25rem',
+    xl:   '1.75rem',
     full: '9999px',
   },
 } as const;

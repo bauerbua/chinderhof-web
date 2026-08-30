@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
 import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
 
@@ -11,12 +13,12 @@ import { aboutImage } from '../config/images';
 import cow from '../assets/images/gallery/cow.jpg';
 import goat from '../assets/images/gallery/goat.jpg';
 
-const tiere = [
-  { name: 'Hofhund Lora', beschreibung: 'Der Liebling von Gross und Klein.' },
-  { name: 'Ziegen Seppli, Trini, Tina, Lola & Luki', beschreibung: 'Die Zwergziegen lieben hartes Brot!' },
-  { name: 'Minipigs Elvira & Otto', beschreibung: 'Unsere Hängebauchschweine haben ihren festen Platz im Herzen.' },
-  { name: 'Kaninchen', beschreibung: 'Die wohnen im Geissengehege und machen den Hof zum Spazierziel.' },
-  { name: 'Hühnervolk', beschreibung: 'Klein, aber fein – und Grundlage unserer Freilandeier.' },
+const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
+  { name: 'Hofhund Lora', beschreibung: 'Der Liebling von Gross und Klein.', icon: 'paw' },
+  { name: 'Ziegen Seppli, Trini, Tina, Lola & Luki', beschreibung: 'Die Zwergziegen lieben hartes Brot!', icon: 'goat' },
+  { name: 'Minipigs Elvira & Otto', beschreibung: 'Unsere Hängebauchschweine haben ihren festen Platz im Herzen.', icon: 'pig' },
+  { name: 'Kaninchen', beschreibung: 'Die wohnen im Geissengehege und machen den Hof zum Spazierziel.', icon: 'bunny' },
+  { name: 'Hühnervolk', beschreibung: 'Klein, aber fein – und Grundlage unserer Freilandeier.', icon: 'chicken' },
 ];
 ---
 
@@ -43,8 +45,8 @@ const tiere = [
         />
       </div>
       <div class="space-y-5">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Wer wir sind</span>
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">Eine waschechte Emmentalerfamilie</h2>
+        <span class="text-topper font-bold uppercase tracking-widest text-primary">Wer wir sind</span>
+        <h2 class="font-heading text-h2 font-semibold text-text">Eine waschechte Emmentalerfamilie</h2>
         <p class="text-text-muted leading-relaxed">
           Wir sind eine Emmentalerfamilie und lieben das hügelige Land rund um Langnau. Mit unseren vier
           Kindern (11–23 Jahre) bewirtschaften wir zusammen mit der Familie Daniel &amp; Elisabeth
@@ -64,8 +66,8 @@ const tiere = [
   <section class="bg-surface py-section">
     <div class="mx-auto max-w-site px-4 sm:px-6">
       <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Unser Betrieb</span>
-        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Wofür wir stehen</h2>
+        <span class="text-topper font-bold uppercase tracking-widest text-primary">Unser Betrieb</span>
+        <h2 class="mt-2 font-heading text-h2 font-semibold text-text">Wofür wir stehen</h2>
       </div>
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -112,16 +114,14 @@ const tiere = [
   <section class="py-section">
     <div class="mx-auto max-w-site px-4 sm:px-6">
       <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Auf dem Hof zu Hause</span>
-        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Unsere Tiere</h2>
+        <span class="text-topper font-bold uppercase tracking-widest text-primary">Auf dem Hof zu Hause</span>
+        <h2 class="mt-2 font-heading text-h2 font-semibold text-text">Unsere Tiere</h2>
       </div>
 
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {tiere.map(({ name, beschreibung }) => (
+        {tiere.map(({ name, beschreibung, icon }) => (
           <div class="flex items-start gap-4 rounded-lg border border-border bg-surface p-5">
-            <svg class="mt-0.5 size-5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
+            <Icon name={icon} class="mt-0.5 size-5 shrink-0 text-terracotta" />
             <div>
               <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
               <p class="mt-1 text-sm text-text-muted leading-relaxed">{beschreibung}</p>

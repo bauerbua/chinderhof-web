@@ -1,0 +1,52 @@
+---
+/**
+ * Spicker – Schweizerdeutsch-Kärtchen (Design-System §9).
+ * „Selbstverständlich uf em Chinderhof" – Begriffe mit Bedeutung.
+ */
+import Icon from './Icon.astro';
+import type { IconName } from './Icon.astro';
+
+interface Spick {
+  wort: string;
+  bedeutung: string;
+  icon: IconName;
+}
+
+interface Props {
+  topper?: string;
+  titel?: string;
+  items?: Spick[];
+}
+
+const defaultItems: Spick[] = [
+  { wort: 'Hoschtert', bedeutung: 'Obstgarten', icon: 'apple' },
+  { wort: 'Schüür', bedeutung: 'Scheune', icon: 'barn' },
+  { wort: 'Gitzeli', bedeutung: 'Zicklein', icon: 'goat' },
+  { wort: 'Chalb', bedeutung: 'Kalb', icon: 'cow' },
+  { wort: 'Heuet', bedeutung: 'Heuernte', icon: 'wheat' },
+  { wort: 'gäbig', bedeutung: 'praktisch', icon: 'sparkle' },
+];
+
+const { topper = 'Schwyzerdütsch', titel, items = defaultItems } = Astro.props;
+
+const titelHtml = titel ?? 'Selbstverständlich uf em <span class="doodle-underline">Chinderhof</span>';
+---
+
+<section class="border-y border-border bg-surface py-10 sm:py-12" aria-label="Schweizerdeutsch-Begriffe">
+  <div class="mx-auto flex max-w-site flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+    <div class="max-w-sm">
+      <span class="text-topper font-bold uppercase tracking-widest text-primary">{topper}</span>
+      <p class="mt-1 font-heading text-h3 font-semibold text-text" set:html={titelHtml}></p>
+    </div>
+
+    <ul class="flex flex-wrap items-center gap-2.5" role="list">
+      {items.map(({ wort, bedeutung, icon }) => (
+        <li class="inline-flex items-center gap-2 rounded-full bg-accent-soft px-4 py-2">
+          <Icon name={icon} class="size-4 shrink-0 text-terracotta" />
+          <span class="font-heading text-sm font-semibold text-primary-dark">{wort}</span>
+          <span class="text-sm text-text-muted">· {bedeutung}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
