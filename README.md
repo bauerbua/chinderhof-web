@@ -14,18 +14,7 @@ Der **Chinderhof** ist ein Familienbetrieb im Emmental (Gegend um **Langnau im E
 
 Tonfall: **herzlich, bodenständig, modern**. Keine klassische Werbesprache – der Chinderhof spricht in Hochdeutsch mit regionalen Akzenten (z. B. „Hoschtert", „Loppigen" nur wo passend), wie die Emmentaler Familie, die er ist.
 
-## 2. Der Betrieb (Fakten für Inhalte)
-
-- **Betriebszweigegemeinschaft:** Familie Chinderhof (Fritz & Frau, 4 Kinder, 11–23 Jahre) gemeinsam mit Familie **Daniel & Elisabeth Scheidegger**.
-- **Milchvieh:** Moderner Laufstall, 2×4er Fischgrätenmelkstand, im Sommer Weide, im Winter **reines Heu** – Grundlage für echten **Emmentaler-Käse**. Auch Aufzuchtrinder und Kälber in Laufställen, viel Freilauf.
-- **Ackerbau:** Saatkartoffeln, Getreide, Silomais, Futterrüben.
-- **Wald:** Baustoff & Energie.
-- **Obst:** „Hoschtert" – Äpfel für Most.
-- **Kleintiere (Herzstück für Familien):** Hofhund **Lora**, kleines Hühnervolk (Freilandeier), Minipigs **Elvira & Otto**, Zwergziegen **Seppli, Trini, Tina, Lola, Luki**, Kaninchen. Der Hof ist ein beliebtes **Spazierziel**.
-- **Lernende:** Lehre **Landwirt/in EFZ oder EBA** (1./2. Lehrjahr).
-- **Familie:** Die Frau unterrichtet Teilpensum Gestalten & Sport in der Gemeinde Rüderswil.
-
-## 3. Zielgruppen
+## 2. Zielgruppen
 
 | Zielgruppe | Bedürfnis / Ziel |
 |---|---|
@@ -33,7 +22,7 @@ Tonfall: **herzlich, bodenständig, modern**. Keine klassische Werbesprache – 
 | Familien / Eltern | Kindernachmittage, Kinderprogramm, Tagesausflug, Tiere erleben |
 | B2B / Abnehmer | Milch & Emmentaler (Käserei-Abnehmer), Ackerbau-Erzeugnisse |
 
-## 4. Seitenstruktur (Routes)
+## 3. Seitenstruktur (Routes)
 
 Statische Astro-Routen:
 
@@ -54,19 +43,19 @@ Regeln:
 - **Keine** eigene Blog-Sektion (Bootstrap-Vorlage mit Blog komplett entfernt).
 - **Keine** separate Galerie-Seite – Fotos werden direkt in die Unterseiten eingebunden.
 - Die vier Angebotsseiten werden **content-driven** aus einer Content-Collection (`angebote`) erzeugt, damit Texte/Preise ohne Code-Anpassung pflegbar sind.
-- Finale Seitennamen/Slugs können noch angepasst werden (offene Entscheidung, siehe §11).
+- Finale Seitennamen/Slugs können noch angepasst werden (offene Entscheidung, siehe §10).
 
-## 5. Seiten-Inhalte (Kurz-Spec)
+## 4. Seiten-Inhalte (Kurz-Spec)
 
 - **Home:** Hero-Bild, Willkommen mit Emmentaler-Charme, Highlight-Leiste (Weidehaltung, Heufütterung, Emmentaler, Freilandeier), 4 Angebots-Karten, Familien-Vorstellung, eingebundene Fotos, CTA „Eier-Abo bestellen" / „Kinderprogramm anmelden".
-- **Freilandeier:** Haltung (Weide, überschaubares Hühnervolk), Abo-Modalitäten (Abholung am Hof oder Lieferung), **Anmelde-Formular** (§6).
-- **Milchproduktion:** Laufstall, Weide im Sommer, reine Heufütterung im Winter, Emmentaler-Produktion, Betriebszweigegemeinschaft, Lernende. **B2B-Anfrageformular** (§6).
-- **Kindernachmittage:** Zielgruppe/Alter, Inhalte, Treffpunkt, **Anmelde-Formular** (§6). Konkrete Details sind noch offen – die Seite ist so gebaut, dass Inhalte später einfach angepasst werden können.
+- **Freilandeier:** Haltung (Weide, überschaubares Hühnervolk), Abo-Modalitäten (Abholung am Hof oder Lieferung), **Anmelde-Formular** (§5).
+- **Milchproduktion:** Laufstall, Weide im Sommer, reine Heufütterung im Winter, Emmentaler-Produktion, Betriebszweigegemeinschaft, Lernende. **B2B-Anfrageformular** (§5).
+- **Kindernachmittage:** Zielgruppe/Alter, Inhalte, Treffpunkt, **Anmelde-Formular** (§5). Konkrete Details sind noch offen – die Seite ist so gebaut, dass Inhalte später einfach angepasst werden können.
 - **Ackerbau:** Saatkartoffeln, Getreide, Silomais, Futterrüben; Wald & Hoschtert.
 - **Über uns:** „Waschechte Emmentalerfamilie", Familie + Scheidegger-Betriebszweigegemeinschaft, Tiere (Lora, Elvira & Otto, Ziegen, Kaninchen), Lernende/Lehrstellen.
 - **Kontakt:** Adresse (Hof, PLZ, Langnau im Emmental), Telefon, E-Mail, Anfahrt, einfaches Kontaktformular.
 
-## 6. Anmelde- & Anfrage-Workflow (MVP)
+## 5. Anmelde- & Anfrage-Workflow (MVP)
 
 Vier Formulare, alle über **PostHog (cookieless)** integriert:
 
@@ -84,7 +73,7 @@ Vier Formulare, alle über **PostHog (cookieless)** integriert:
 
 **Konfiguration:** Der PostHog-Key wird über die Umgebungsvariable `PUBLIC_POSTHOG_KEY` gesetzt (plus optional `PUBLIC_POSTHOG_HOST`). Ohne Key läuft die Seite im „Demo-Modus" (Formular zeigt Erfolg, Log-Ausgabe) – für Build/Preview ohne Backend.
 
-## 7. Technischer Stack
+## 6. Technischer Stack
 
 | Bereich | Vorgabe |
 |---|---|
@@ -97,14 +86,14 @@ Vier Formulare, alle über **PostHog (cookieless)** integriert:
 | Inhalte | Content-Collection `angebote` (`src/content/angebote/*.md`) mit Zod-Schema |
 | Deployment | Statisch, **gehostet in der Schweiz** – Anbieter/Domain offen (Domaine `chinderhof.ch` existiert) |
 
-## 8. Design & Marke
+## 7. Design & Marke
 
 - Logo & Fotos sind vorhanden (vom bestehenden Auftritt) – werden nachgeliefert/ersetzt. Aktuell dienen lokale Platzhalter-Fotos.
 - Warme, natürliche Farbpalette (Waldgrün `#2F5D2A`, Heu-Gold `#D99E2B`, helle, warme Flächen) – definiert in `src/config/brand.ts` + `src/styles/theme.css`.
 - Mobile-First, schnelle Ladezeiten (Core Web Vitals), View-Transitions für sanfte Navigation.
 - Schweizerdeutsch-Touch in Infotexten; Gesamttext Deutsch (Hochdeutsch).
 
-## 9. SEO & Auffindbarkeit
+## 8. SEO & Auffindbarkeit
 
 Vorgeschlagene Fokus-Keywords (basierend auf Zielgruppen & Standort):
 
@@ -115,12 +104,12 @@ Vorgeschlagene Fokus-Keywords (basierend auf Zielgruppen & Standort):
 
 Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1 pro Seite, saubere Überschriften-Hierarchie, beschreibende Metadaten, Alt-Texte, Sitemap, Robots.txt.
 
-## 10. Rechtliches
+## 9. Rechtliches
 
 - **Impressum** und **Datenschutzerklärung** (DSG Schweiz) als Seiten vorhanden; konkrete Angaben sind noch mit Platzhaltern hinterlegt.
 - **Kein Cookie-Banner:** PostHog läuft **cookieless** (In-Memory-Persistence), Einwilligungs-Cookies werden nicht gesetzt.
 
-## 11. Offene Entscheidungen (vor Go-Live klären)
+## 10. Offene Entscheidungen (vor Go-Live klären)
 
 1. Finale Seiten-Namen/Slugs („Kindernachmittage" vs. „Kinderprogramm").
 2. Hosting-Anbieter & Domain-Finalisierung (`chinderhof.ch`).
@@ -130,7 +119,7 @@ Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1
 6. Geteilte Liste festlegen (Google Sheets o. Ä.) und PostHog-Workflow konfigurieren.
 7. Bereitstellung der echten Hof-Fotos (Platzhalter ersetzen).
 
-## 12. Nicht-Ziele (Scope dieses Projekts)
+## 11. Nicht-Ziele (Scope dieses Projekts)
 
 - **Kein** Webshop / Online-Bezahlung.
 - **Keine** automatisierte Rechnungsstellung.
@@ -138,14 +127,14 @@ Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1
 - **Keine** eigene Galerie-Seite.
 - **Keine** Mitglieder-/Login-Funktionen; keine Chat-Features.
 
-## 13. Zukunfts-Roadmap (nicht Teil dieses Builds)
+## 12. Zukunfts-Roadmap (nicht Teil dieses Builds)
 
 - Webshop (eier-abo-basierte Produkte, Direktverkauf).
 - Automatisierte Rechnungsstellung nach Bestätigung.
 - CRM-Anbindung & automatisierte Bestätigungs-E-Mails.
 - Abo-Verwaltung (Pausen, Mengenänderungen, Lieferrouten).
 
-## 14. „Definition of Done" für Agenten
+## 13. „Definition of Done" für Agenten
 
 - Alle Seiten existieren als statische, barrierefreie Seiten; Blog-Sektion und Vorlagen-Inhalte (Plumber/Sanitär) vollständig entfernt.
 - `brand.ts`, `client.ts`, `astro.config.mjs` und `theme.css` auf Chinderhof umgestellt.

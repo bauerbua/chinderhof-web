@@ -2,13 +2,18 @@
 import { brand } from '../config/brand';
 import { client } from '../data/client';
 
+const angebote = [
+  { label: 'Freilandeier',    href: '/freilandeier' },
+  { label: 'Milchproduktion', href: '/milchproduktion' },
+  { label: 'Kindernachmittage', href: '/kinderprogramm' },
+  { label: 'Ackerbau',        href: '/ackerbau' },
+];
+
 const nav = [
   { label: 'Home',     href: '/' },
-  { label: 'About',    href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Reviews',  href: '/reviews' },
-  { label: 'Blog',     href: '/blog' },
-  { label: 'Contact',  href: '/contact' },
+  { label: 'Angebote', href: '/', children: angebote },
+  { label: 'Über uns', href: '/ueber-uns' },
+  { label: 'Kontakt',  href: '/kontakt' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -28,33 +33,63 @@ const currentPath = Astro.url.pathname;
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-      {nav.map(({ label, href }) => {
-        const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
+      {nav.map(({ label, href, children }) => {
+        if (!children) {
+          const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+          return (
+            <a
+              href={href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                isActive ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text',
+              ]}
+            >
+              {label}
+            </a>
+          );
+        }
+
+        const childActive = children.some((c) => currentPath.startsWith(c.href));
         return (
-          <a
-            href={href}
-            aria-current={isActive ? 'page' : undefined}
-            class:list={[
-              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
-              isActive
-                ? 'bg-primary/10 text-primary'
-                : 'text-text-muted hover:text-text',
-            ]}
-          >
-            {label}
-          </a>
+          <div class="relative" data-dropdown>
+            <button
+              type="button"
+              data-dropdown-toggle
+              aria-expanded="false"
+              aria-haspopup="true"
+              class:list={[
+                'flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                childActive ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text',
+              ]}
+            >
+              {label}
+              <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              data-dropdown-menu
+              hidden
+              class="absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-border bg-background p-2 shadow-lg"
+            >
+              {children.map(({ label, href }) => (
+                <a
+                  href={href}
+                  class="block rounded-md px-3 py-2.5 text-sm font-medium text-text-muted transition-colors hover:bg-surface hover:text-primary"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
         );
       })}
     </nav>
 
     <!-- Desktop CTA + phone -->
     <div class="hidden items-center gap-4 lg:flex">
-      {client.license && (
-        <span class="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-text-muted">
-          {client.license}
-        </span>
-      )}
       <a
         href={`tel:${client.phoneForTel}`}
         class="text-sm font-semibold text-text hover:text-primary transition-colors"
@@ -62,10 +97,10 @@ const currentPath = Astro.url.pathname;
         {client.phoneFormatted}
       </a>
       <a
-        href="/contact"
+        href="/freilandeier"
         class="inline-flex min-h-[44px] items-center rounded-md bg-accent px-5 py-2.5 text-sm font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
-        Free Quote
+        Eier-Abo
       </a>
     </div>
 
@@ -77,7 +112,7 @@ const currentPath = Astro.url.pathname;
       aria-controls="mobile-menu"
       class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md text-text-muted hover:bg-surface lg:hidden"
     >
-      <span class="sr-only">Toggle menu</span>
+      <span class="sr-only">Menü öffnen</span>
       <svg id="menu-icon-open" class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -92,23 +127,25 @@ const currentPath = Astro.url.pathname;
     id="mobile-menu"
     class="hidden border-t border-border bg-background px-4 pb-6 pt-2 lg:hidden"
   >
-    <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
-      {nav.map(({ label, href }) => {
-        const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
-        return (
-          <a
-            href={href}
-            class:list={[
-              'rounded-md px-3 py-3 text-base font-medium transition-colors',
-              isActive
-                ? 'bg-primary/10 text-primary'
-                : 'text-text-muted hover:text-text hover:bg-surface',
-            ]}
-          >
-            {label}
-          </a>
-        );
-      })}
+    <nav class="flex flex-col gap-1" aria-label="Mobilnavigation">
+      <a href="/" class="rounded-md px-3 py-3 text-base font-medium text-text-muted hover:bg-surface hover:text-text">
+        Home
+      </a>
+      <p class="px-3 pb-1 pt-3 text-xs font-bold uppercase tracking-widest text-accent">Angebote</p>
+      {angebote.map(({ label, href }) => (
+        <a
+          href={href}
+          class="rounded-md px-3 py-3 text-base font-medium text-text-muted transition-colors hover:bg-surface hover:text-text"
+        >
+          {label}
+        </a>
+      ))}
+      <a href="/ueber-uns" class="rounded-md px-3 py-3 text-base font-medium text-text-muted transition-colors hover:bg-surface hover:text-text">
+        Über uns
+      </a>
+      <a href="/kontakt" class="rounded-md px-3 py-3 text-base font-medium text-text-muted transition-colors hover:bg-surface hover:text-text">
+        Kontakt
+      </a>
     </nav>
 
     <div class="mt-4 flex flex-col gap-3 border-t border-border pt-4">
@@ -122,14 +159,11 @@ const currentPath = Astro.url.pathname;
         {client.phoneFormatted}
       </a>
       <a
-        href="/contact"
+        href="/freilandeier"
         class="flex min-h-[44px] items-center justify-center rounded-md bg-accent px-5 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
       >
-        Get a Free Quote
+        Eier-Abo bestellen
       </a>
-      {client.license && (
-        <p class="px-3 pt-1 text-xs text-text-muted">{client.license}</p>
-      )}
     </div>
   </div>
 </header>
@@ -149,52 +183,19 @@ const currentPath = Astro.url.pathname;
     const menu = /** @type {HTMLElement} */ (menuEl);
     const iconOpen = /** @type {HTMLElement} */ (iconOpenEl);
     const iconClose = /** @type {HTMLElement} */ (iconCloseEl);
-    if (header.dataset.menuInit === 'true') return;
-    header.dataset.menuInit = 'true';
-
-    const activeClasses = ['bg-primary/10', 'text-primary'];
-    const inactiveDesktop = ['text-text-muted', 'hover:text-text'];
-    const inactiveMobile = ['text-text-muted', 'hover:text-text', 'hover:bg-surface'];
+    if (header.dataset.init === 'true') return;
+    header.dataset.init = 'true';
 
     const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
 
+    // ── Mobile Drawer ────────────────────────────────────────────────
     const setMenuOpen = (nextOpen: boolean) => {
-      // Hard stop: hamburger/drawer behavior is mobile-only.
       if (isDesktop()) nextOpen = false;
       btn.setAttribute('aria-expanded', String(nextOpen));
       menu.classList.toggle('hidden', !nextOpen);
       iconOpen.classList.toggle('hidden', nextOpen);
       iconClose.classList.toggle('hidden', !nextOpen);
     };
-
-    function syncActiveLinks() {
-      const path = window.location.pathname;
-      const desktopLinks = header.querySelectorAll('nav[aria-label="Primary navigation"] a');
-      const mobileLinks = header.querySelectorAll('#mobile-menu nav a');
-
-      desktopLinks.forEach((link) => {
-        const href = link.getAttribute('href') || '';
-        const isActive = href === path || (href !== '/' && path.startsWith(href));
-        link.classList.toggle(activeClasses[0], isActive);
-        link.classList.toggle(activeClasses[1], isActive);
-        link.classList.toggle(inactiveDesktop[0], !isActive);
-        link.classList.toggle(inactiveDesktop[1], !isActive);
-        if (isActive) link.setAttribute('aria-current', 'page');
-        else link.removeAttribute('aria-current');
-      });
-
-      mobileLinks.forEach((link) => {
-        const href = link.getAttribute('href') || '';
-        const isActive = href === path || (href !== '/' && path.startsWith(href));
-        link.classList.toggle(activeClasses[0], isActive);
-        link.classList.toggle(activeClasses[1], isActive);
-        link.classList.toggle(inactiveMobile[0], !isActive);
-        link.classList.toggle(inactiveMobile[1], !isActive);
-        link.classList.toggle(inactiveMobile[2], !isActive);
-        if (isActive) link.setAttribute('aria-current', 'page');
-        else link.removeAttribute('aria-current');
-      });
-    }
 
     btn.addEventListener('click', () => {
       if (isDesktop()) return;
@@ -208,16 +209,104 @@ const currentPath = Astro.url.pathname;
       if (target.closest('a[href]')) setMenuOpen(false);
     });
 
-    document.addEventListener('astro:before-preparation', () => setMenuOpen(false));
+    // ── Desktop Dropdown ─────────────────────────────────────────────
+    const closeDropdowns = () => {
+      header.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((dd) => {
+        dd.querySelector<HTMLElement>('[data-dropdown-menu]')!.hidden = true;
+        dd.querySelector<HTMLButtonElement>('[data-dropdown-toggle]')!.setAttribute('aria-expanded', 'false');
+      });
+    };
+
+    const toggleDropdown = (dd: HTMLElement) => {
+      const menuEl2 = dd.querySelector<HTMLElement>('[data-dropdown-menu]')!;
+      const btnEl2 = dd.querySelector<HTMLButtonElement>('[data-dropdown-toggle]')!;
+      const isOpen = !menuEl2.hidden;
+      closeDropdowns();
+      if (!isOpen) {
+        menuEl2.hidden = false;
+        btnEl2.setAttribute('aria-expanded', 'true');
+      }
+    };
+
+    header.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((dd) => {
+      dd.querySelector('[data-dropdown-toggle]')?.addEventListener('click', () => toggleDropdown(dd));
+      dd.addEventListener('mouseenter', () => {
+        if (isDesktop()) {
+          closeDropdowns();
+          dd.querySelector<HTMLElement>('[data-dropdown-menu]')!.hidden = false;
+          dd.querySelector<HTMLButtonElement>('[data-dropdown-toggle]')!.setAttribute('aria-expanded', 'true');
+        }
+      });
+      dd.addEventListener('mouseleave', closeDropdowns);
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (!target.closest('[data-dropdown]')) closeDropdowns();
+    });
+
+    // ── Schliessen nach Navigation / Resize ─────────────────────────
+    document.addEventListener('astro:before-preparation', () => {
+      setMenuOpen(false);
+      closeDropdowns();
+    });
+
     document.addEventListener('astro:after-swap', () => {
       setMenuOpen(false);
+      closeDropdowns();
       syncActiveLinks();
     });
 
-    // Ensure mobile drawer can't stay open if viewport changes to desktop.
-    window.addEventListener('resize', () => setMenuOpen(false));
+    const syncActiveLinks = () => {
+      const path = window.location.pathname;
+      const setActive = (link: HTMLAnchorElement, active: boolean) => {
+        link.classList.toggle('bg-primary/10', active);
+        link.classList.toggle('text-primary', active);
+        link.classList.toggle('text-text-muted', !active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      };
+
+      header.querySelectorAll<HTMLAnchorElement>('nav[aria-label="Hauptnavigation"] > a').forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        setActive(link, path === href || (href !== '/' && path.startsWith(href)));
+      });
+
+      header.querySelectorAll<HTMLAnchorElement>('#mobile-menu nav a').forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        link.classList.toggle('bg-primary/10', path === href || (href !== '/' && path.startsWith(href)));
+        link.classList.toggle('text-primary', path === href || (href !== '/' && path.startsWith(href)));
+        if (path === href || (href !== '/' && path.startsWith(href))) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+
+      header.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((dd) => {
+        const childActive = Array.from(
+          dd.querySelectorAll<HTMLAnchorElement>('[data-dropdown-menu] a'),
+        ).some((a) => path.startsWith(a.getAttribute('href') || ''));
+        const btnEl2 = dd.querySelector<HTMLButtonElement>('[data-dropdown-toggle]');
+        if (!btnEl2) return;
+        btnEl2.classList.toggle('bg-primary/10', childActive);
+        btnEl2.classList.toggle('text-primary', childActive);
+        btnEl2.classList.toggle('text-text-muted', !childActive);
+      });
+    };
+
+    window.addEventListener('resize', () => {
+      setMenuOpen(false);
+      closeDropdowns();
+    });
+
+    // Keyboard: Escape schliesst alles
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        closeDropdowns();
+      }
+    });
 
     setMenuOpen(false);
-    syncActiveLinks();
+    closeDropdowns();
   })();
 </script>

@@ -4,13 +4,17 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import TrustBar from '../components/TrustBar.astro';
-import Services from '../components/Services.astro';
+import AngebotsGrid from '../components/AngebotsGrid.astro';
 import About from '../components/About.astro';
-import Reviews from '../components/Reviews.astro';
 import Gallery from '../components/Gallery.astro';
 import CTA from '../components/CTA.astro';
+import { getCollection } from 'astro:content';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
+
+const angebote = await getCollection('angebote');
+const order = ['freilandeier', 'milchproduktion', 'kinderprogramm', 'ackerbau'];
+angebote.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 ---
 
 <BaseLayout
@@ -20,6 +24,7 @@ import { client } from '../data/client';
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: client.name,
+    image: undefined,
     telephone: client.phoneForTel,
     email: client.email,
     address: {
@@ -31,17 +36,47 @@ import { client } from '../data/client';
       addressCountry: client.address.country,
     },
     url: client.domain,
+    description: brand.description,
   }}
 >
   <Header slot="header" />
 
-  <Hero />
-  <TrustBar />
-  <Services />
+  <Hero
+    topper="Emmental · Langnau"
+    heading={brand.name}
+    description="Der Chinderhof ist ein Familienbetrieb im Herzen des Emmentals: Freilandeier als Abo, Milchvieh mit Weidegang, Kinder auf dem Hof und eigene Ackerfrüchte. Schau vorbei – wir freuen uns auf dich."
+    ctaLabel="Eier-Abo bestellen"
+    ctaHref="/freilandeier"
+    secondaryLabel="Unser Angebot"
+    secondaryHref="/#angebote"
+  />
+
+  <TrustBar
+    items={[
+      { label: 'Weidehaltung im Sommer' },
+      { label: 'Heufütterung im Winter' },
+      { label: 'Echter Emmentaler' },
+      { label: 'Freilandeier vom Hof' },
+    ]}
+  />
+
+  <AngebotsGrid angebote={angebote} />
+
   <About />
-  <Reviews />
-  <Gallery />
-  <CTA />
+
+  <Gallery
+    topper="Einblicke"
+    heading="Unser Hofalltag"
+    description="Kühe auf der Weide, Hühner im Freien, Felder im hügeligen Emmental – ein kleiner Blick in unseren Alltag."
+    ctaLabel=""
+  />
+
+  <CTA
+    title="Frisch vom Hof zu dir"
+    description="Sichere dir dein Freilandeier-Abo oder melde dein Kind für einen Kindernachmittag an. Wir melden uns persönlich bei dir!"
+    buttonText="Jetzt Eier-Abo bestellen"
+    buttonHref="/freilandeier"
+  />
 
   <Footer slot="footer" />
 </BaseLayout>

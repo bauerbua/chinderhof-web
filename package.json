@@ -1,21 +1,20 @@
 {
   "name": "chinderhof",
   "type": "module",
-  "version": "0.1.0",
-  "description": "A minimal, fast, and fully customisable small-business website template built with Astro 6, Tailwind v4, and Playwright.",
-  "author": "bauerbua",
+  "version": "0.2.0",
+  "description": "Offizielle Website des Chinderhofs (Langnau im Emmental) – statischer Webauftritt mit Astro, Tailwind v4, Freilandeier-Abo, Kindernachmittagen und PostHog-cookieless-Formularen.",
   "license": "MIT",
   "keywords": [
+    "chinderhof",
+    "bauernhof",
+    "emmental",
     "astro",
-    "astro-theme",
-    "astro6",
     "tailwind",
     "tailwindcss",
-    "small-business",
-    "starter",
-    "template",
-    "view-transitions",
-    "playwright"
+    "freilandeier",
+    "static-site",
+    "posthog",
+    "view-transitions"
   ],
   "engines": {
     "node": ">=22.12.0"
@@ -32,6 +31,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.9",
     "astro-robots-txt": "^1.0.0",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3"
   },
   "pnpm": {

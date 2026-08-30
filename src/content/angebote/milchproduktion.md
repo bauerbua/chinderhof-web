@@ -12,7 +12,7 @@ highlights:
   - 2×4er Fischgrätenmelkstand
   - Grundlage für echten Emmentaler-Käse
   - Aufzuchtrinder und Kälber ebenfalls mit Laufstall-Haltung
-  - Betriebsgegenwart mit der Familie Scheidegger
+  - Betriebszweigegemeinschaft mit der Familie Scheidegger
 form: b2b
 ---
 

@@ -9,8 +9,8 @@ hero: >-
   Mosten.
 highlights:
   - Saatkartoffeln, Getreide, Silomais und Futterrüben
-  - Wald: Baustoff und Energie aus dem eigenen Bestand
-  - „Hoschtert" mit Äpfeln für eigenen Most
+  - "Wald: Baustoff und Energie aus dem eigenen Bestand"
+  - "„Hoschtert“ mit Äpfeln für eigenen Most"
   - Teil einer Betriebszweigegemeinschaft für effizienten Anbau
 form: none
 ---

@@ -41,12 +41,12 @@ const {
     </div>
 
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
-      {angebote.map(({ slug, data }) => {
-        const cover = covers[slug];
+      {angebote.map(({ id, data }) => {
+        const cover = covers[id];
         return (
           <li>
             <a
-              href={`/${slug}`}
+              href={`/${id}`}
               aria-label={`Mehr über ${data.title}`}
               class="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-shadow duration-200 hover:shadow-md"
             >

@@ -8,7 +8,7 @@ hero: >-
   Langnau. An unseren Kindernachmittagen erleben Kinder den Hof mit allen
   Sinnen.
 highlights:
-  - Tiere hautnah: Ziegen, Minipigs, Kaninchen, Hühner und Hofhund Lora
+  - "Tiere hautnah: Ziegen, Minipigs, Kaninchen, Hühner und Hofhund Lora"
   - Natur und Jahreszeiten auf dem Bauernhof erleben
   - Kleine Gruppen mit viel Betreuung
   - Ideal als Spazierziel für Familien aus der näheren Umgebung

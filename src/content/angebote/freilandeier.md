@@ -9,7 +9,7 @@ hero: >-
 highlights:
   - Kleines, überschaubares Hühnervolk mit Weidegang
   - Frisch vom Hof – jeden Tag abgeholt oder geliefert
-  - Einfaches Abo: Menge und Rhythmus bestimmt ihr selbst
+  - "Einfaches Abo: Menge und Rhythmus bestimmt ihr selbst"
   - Abholung am Hof oder Lieferung in die nähere Umgebung
 form: eier-abo
 ---
