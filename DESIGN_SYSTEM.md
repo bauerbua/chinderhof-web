@@ -1,19 +1,76 @@
 # Design-System „Chinderhof"
 
-> Freigegeben-Vorschlag (Status: in Freigabe durch die Besitzerin).
 > Dieses Dokument ist die verbindliche Referenz für Design-Entscheidungen im Projekt.
 > Änderungen am Aussehen stehen hier zuerst – danach im Code (`src/styles/theme.css` + `src/config/brand.ts`).
 
 ---
 
-## 1. Stil-Essenz
+## 1. Gefühl & Wirkung – der „Anker" des Designs
+
+> Dieses Kapitel ist die **Basis** des gesamten Design-Systems. Farben, Typografie,
+> Formen, Icons und Bilder leiten sich daraus ab – nicht umgekehrt.
+
+### 1.1 In einem Satz
 
 > **„Heimelig, ehrlich, spielerisch – das Emmental im modernen Familienformat."**
 
-Ein warmes, organisch gestaltetes Erscheinungsbild, das sofort Familie und Hof zeigt,
-aber ruhig und vertrauenswürdig genug bleibt für Abnehmer (Milch, Emmentaler, Ackerbau).
+### 1.2 So soll es sich anfühlen (Bildgedanke)
 
-## 2. Design-Prinzipien
+Stell dir vor, du biegst an einem warmen Sommernachmittag in den Hof ein: goldenes Licht,
+es duftet nach Heu und frischer Milch, irgendwo kichert ein Kind, eine Ziege blökt, und
+jemand winkt dir freundlich zu – obwohl er dich noch nie gesehen hat.
+
+**Auf der Website sollst du dich genauso fühlen: willkommen, entspannt, ein bisschen wie zu Hause.**
+Der Auftritt ist keine digitale Werbefläche, sondern wie «der Weg über den Hofplatz»:
+man kann gemütlich anhalten, schauen, Fragen stellen und kommt unbeschwert wieder.
+
+### 1.3 Gefühle, die die Website auslösen soll
+
+| Gefühl | Bedeutung für uns |
+|---|---|
+| **Willkommensein** | Der Hof lädt ein – niemand muss sich zurechtfinden wie in einer grossen Organisation. |
+| **Vertrauen** | Man sieht die Hände, die Tiere, den ehrlichen Umgang: hier kann man bedenkenlos bestellen und Kinder hinschicken. |
+| **Gemütlichkeit & Wärme** | Geborgenheit, Ruhe, «es ist gut hier». Wichtig: **gemütlich, nicht langweilig**. |
+| **Freude & ein Schmunzeln** | Kleine spielerische Details (Maskottchen, Schwyzerdütsch-Kärtchen) machen den Besuch vergnüglich – gerade für Familien. |
+| **Stolz & Ehrlichkeit** | Regionalität, Handwerk, Emmentaler-Haltung: selbstbewusst, ohne anzugeben. |
+| **Neugier** | Der Hof, die Tiere, die Produkte wollen erlebt werden: «das möchte ich sehen / probieren». |
+
+### 1.4 Persönlichkeit: «Wenn der Chinderhof eine Person wäre …»
+
+- Herzlich und bodenständig, mit trockenem Humor.
+- Gastfreundlich: kümmert sich, haut aber nicht auf die Pauke.
+- Direkt und unkompliziert – kein Formular-Bürokrat, kein Verkäufer-Ton.
+- Familienmensch mit Freude an Kindern, Tieren und anständigen Sachen.
+- Stolz aufs Handwerk ohne Grosskotzigkeit: lieber guten Käse teilen als sich zu brüsten.
+
+### 1.5 Für wen es sich so anfühlen soll
+
+| Person | Gefühl beim Besuch |
+|---|---|
+| Familie mit Kindern | «Hier sind wir richtig – sicher, spannend, herzlich.» |
+| Lokale Kund:in (Eier-Abo) | «Einfach und vertraut – ich weiss, woher meine Eier kommen.» |
+| Abnehmer:in / B2B (Milch, Getreide) | «Verlässlich, handwerklich, qualitätsbewusst – angenehm im Umgang.» |
+| Wanderer / Spaziergänger | «Ein Hof, wo man anhalten und winken darf.» |
+
+### 1.6 Stimmungs-Wörter
+
+**Dazugehörend:** heimelig · ehrlich · warm · sonnig · lebendig · verspielt (aber fein) ·
+ruhig · grosszügig · bodenständig · nah · handgemacht · «ufs Örtli»-Lebensgefühl.
+
+**Ausdrücklich NICHT:** steril · technisch-kühl · anonym · werblich-grosskotzig ·
+hektisch · laut · kitschige Alpenromantik (kein Kuhglocken-Klischee) · billig ·
+dunkel-düster · nervös überladen.
+
+### 1.7 Sinnliche Übersetzung (Brücke zu den Design-Entscheidungen)
+
+| Sinn | Was wir kennen | Übersetzung ins Design |
+|---|---|---|
+| **Licht** | Warmes, goldenes Abendlicht | Rahm/Beige-Creme statt kaltem Weiss; warme Schatten statt grauer |
+| **Material** | Holz, Heu, Leinen – weich und körnig | Organische Formen, weiche Radien, freundliche Mikro-Bewegungen |
+| **Klang** | Vogelgezwitscher, Kinderlachen | Ruhige, grosszügige Flächen; dezente statt hektische Animationen |
+| **Geruch** | Heu, Most, frisch gemolken | Warme Farbtöne (Tannengrün, Heu-Gold, Terrakotta); echte Fotos ohne schwere Filter |
+
+## 2. Design-Prinzipien (aus §1 abgeleitet)
 
 1. **Heimelig statt perfekt** – warme Oberflächen, organische Formen, kleine „Krickeli"
    (handgezeichnete Doodle-Hervorhebungen). Nicht steril, nicht kitschig.
@@ -132,18 +189,7 @@ aber ruhig und vertrauenswürdig genug bleibt für Abnehmer (Milch, Emmentaler, 
 - `geführte` Alt-Texte, semantische Struktur (`main`, `nav`, `article`, `ul/li`).
 - Performance: kein Webload für Body-Text; Fraunces mit `display=swap`; Bilder optimiert.
 
-## 13. Freigabe-Checkliste (Besitzerin)
-
-- [ ] Farbwelt (Tannengrün / Rahm / Terrakotta / Heu-Gold) – ok?
-- [ ] Fraunces (Headlines) + Systemschrift (Text) – ok?
-- [ ] Hügellinien-Sektionen – ok?
-- [ ] Maskottchen Strich-Huhn – Name: ____________
-- [ ] Polaroid-Galerie (leichter Dreh) – ok?
-- [ ] Spicker-Begriffe: Hoschtert / Schüür / Gitzeli / Chalb / Heuet / gäbig – ok?
-- [ ] Akzent-Verhältnis 70/15/15 – ok?
-- [ ] Logo-Lieferung (Regeln gelten vorab) – ok?
-
-## 14. Token-Referenz (Code)
+## 13. Token-Referenz (Code)
 
 | Token | Design-System | Code |
 |---|---|---|
