@@ -129,19 +129,3 @@ Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1
 - Abo-Verwaltung (Pausen, Mengenänderungen, Lieferrouten).
 
 ---
-
-## Entwicklung
-
-```bash
-pnpm install
-pnpm dev        # lokale Entwicklung
-pnpm build      # statischer Build nach dist/
-pnpm preview    # Build lokal ansehen
-```
-
-Umgebungsvariablen:
-
-```bash
-PUBLIC_POSTHOG_KEY=<project_api_key>
-PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
-```
