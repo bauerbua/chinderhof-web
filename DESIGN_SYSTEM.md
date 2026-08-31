@@ -6,79 +6,55 @@
 ---
 
 ## 1. Gefühl & Wirkung – der „Anker" des Designs
+1. Wie soll die Website bei Kund*innen wirken?
 
-> Dieses Kapitel ist die **Basis** des gesamten Design-Systems. Farben, Typografie,
-> Formen, Icons und Bilder leiten sich daraus ab – nicht umgekehrt.
+Herzlich, authentisch, bodenständig und modern.
+Man soll sofort das Gefühl bekommen, einen echten Familienbetrieb kennenzulernen – nicht eine anonyme Landwirtschaftsmarke.
 
-### 1.1 In einem Satz
+2. Wie soll sie sich für Nutzer*innen anfühlen?
 
-> **„Heimelig, ehrlich, spielerisch – das Emmental im modernen Familienformat."**
+Nahbar, unkompliziert und vertrauenswürdig.
+Besucher*innen sollen sich willkommen fühlen, den Hof und seine Werte kennenlernen und ohne Hürden ein Angebot nutzen oder Kontakt aufnehmen können.
 
-### 1.2 So soll es sich anfühlen (Bildgedanke)
+3. Wie soll sie auf keinen Fall wirken?
 
-Stell dir vor, du biegst an einem warmen Sommernachmittag in den Hof ein: goldenes Licht,
-es duftet nach Heu und frischer Milch, irgendwo kichert ein Kind, eine Ziege blökt, und
-jemand winkt dir freundlich zu – obwohl er dich noch nie gesehen hat.
+Nicht kitschig, nicht altmodisch und nicht wie klassische Werbung.
+Keine künstliche „Bauernhof-Romantik“, keine übertriebene Werbesprache und kein steriles Corporate Design.
 
-**Auf der Website sollst du dich genauso fühlen: willkommen, entspannt, ein bisschen wie zu Hause.**
-Der Auftritt ist keine digitale Werbefläche, sondern wie «der Weg über den Hofplatz»:
-man kann gemütlich anhalten, schauen, Fragen stellen und kommt unbeschwert wieder.
+4. Was soll die Website von Wettbewerber*innen unterscheiden?
 
-### 1.3 Gefühle, die die Website auslösen soll
+Die Persönlichkeit des echten Hofs.
+Familie, Tiere, Landschaft und Arbeitsweise werden ehrlich und direkt gezeigt. Der regionale Emmentaler Charakter und ein dezenter Schweizerdeutsch-Touch machen den Chinderhof unverwechselbar.
 
-| Gefühl | Bedeutung für uns |
-|---|---|
-| **Willkommensein** | Der Hof lädt ein – niemand muss sich zurechtfinden wie in einer grossen Organisation. |
-| **Vertrauen** | Man sieht die Hände, die Tiere, den ehrlichen Umgang: hier kann man bedenkenlos bestellen und Kinder hinschicken. |
-| **Gemütlichkeit & Wärme** | Geborgenheit, Ruhe, «es ist gut hier». Wichtig: **gemütlich, nicht langweilig**. |
-| **Freude & ein Schmunzeln** | Kleine spielerische Details (Maskottchen, Schwyzerdütsch-Kärtchen) machen den Besuch vergnüglich – gerade für Familien. |
-| **Stolz & Ehrlichkeit** | Regionalität, Handwerk, Emmentaler-Haltung: selbstbewusst, ohne anzugeben. |
-| **Neugier** | Der Hof, die Tiere, die Produkte wollen erlebt werden: «das möchte ich sehen / probieren». |
+5. Was sollen Besucher*innen am Ende denken und tun?
 
-### 1.4 Persönlichkeit: «Wenn der Chinderhof eine Person wäre …»
+„Das ist ein sympathischer, vertrauenswürdiger Hof aus meiner Region.“
+Danach sollen sie sich konkret für ein Angebot interessieren und möglichst unkompliziert ein Eier-Abo bestellen, sich für einen Kindernachmittag anmelden oder Kontakt aufnehmen.
 
-- Herzlich und bodenständig, mit trockenem Humor.
-- Gastfreundlich: kümmert sich, haut aber nicht auf die Pauke.
-- Direkt und unkompliziert – kein Formular-Bürokrat, kein Verkäufer-Ton.
-- Familienmensch mit Freude an Kindern, Tieren und anständigen Sachen.
-- Stolz aufs Handwerk ohne Grosskotzigkeit: lieber guten Käse teilen als sich zu brüsten.
+Daraus würde ich 4 zentrale Designprinzipien ableiten
 
-### 1.5 Für wen es sich so anfühlen soll
+1. Echt statt inszeniert
+Authentische Bilder, echte Menschen, echte Geschichten.
 
-| Person | Gefühl beim Besuch |
-|---|---|
-| Familie mit Kindern | «Hier sind wir richtig – sicher, spannend, herzlich.» |
-| Lokale Kund:in (Eier-Abo) | «Einfach und vertraut – ich weiss, woher meine Eier kommen.» |
-| Abnehmer:in / B2B (Milch, Getreide) | «Verlässlich, handwerklich, qualitätsbewusst – angenehm im Umgang.» |
-| Wanderer / Spaziergänger | «Ein Hof, wo man anhalten und winken darf.» |
+2. Modern, aber nicht glatt
+Zeitgemäßes Webdesign, ohne den bäuerlichen Charakter zu verlieren.
 
-### 1.6 Stimmungs-Wörter
+3. Herzlich statt werblich
+Persönliche Sprache und warme Gestaltung statt Marketing-Floskeln.
 
-**Dazugehörend:** heimelig · ehrlich · warm · sonnig · lebendig · verspielt (aber fein) ·
-ruhig · grosszügig · bodenständig · nah · handgemacht · «ufs Örtli»-Lebensgefühl.
+4. Einfach statt kompliziert
+Klare Navigation, verständliche Informationen und möglichst kurze Wege zu Abo, Anmeldung und Kontakt.
 
-**Ausdrücklich NICHT:** steril · technisch-kühl · anonym · werblich-grosskotzig ·
-hektisch · laut · kitschige Alpenromantik (kein Kuhglocken-Klischee) · billig ·
-dunkel-düster · nervös überladen.
+## 2. Visuelle Design-Prinzipien (ergänzend zu §1)
 
-### 1.7 Sinnliche Übersetzung (Brücke zu den Design-Entscheidungen)
-
-| Sinn | Was wir kennen | Übersetzung ins Design |
-|---|---|---|
-| **Licht** | Warmes, goldenes Abendlicht | Rahm/Beige-Creme statt kaltem Weiss; warme Schatten statt grauer |
-| **Material** | Holz, Heu, Leinen – weich und körnig | Organische Formen, weiche Radien, freundliche Mikro-Bewegungen |
-| **Klang** | Vogelgezwitscher, Kinderlachen | Ruhige, grosszügige Flächen; dezente statt hektische Animationen |
-| **Geruch** | Heu, Most, frisch gemolken | Warme Farbtöne (Tannengrün, Heu-Gold, Terrakotta); echte Fotos ohne schwere Filter |
-
-## 2. Design-Prinzipien (aus §1 abgeleitet)
+Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber nicht glatt, Herzlich statt werblich, Einfach statt kompliziert) werden hier um konkrete visuelle Umsetzungsprinzipien ergänzt:
 
 1. **Heimelig statt perfekt** – warme Oberflächen, organische Formen, kleine „Krickeli"
    (handgezeichnete Doodle-Hervorhebungen). Nicht steril, nicht kitschig.
-2. **Ehrlich** – authentische Fotos ohne schwere Filter. Fliesstext in der **Systemschrift**,
-   sprich: Null Webload für Standardtext.
+2. **Emmental statt Alpenkitsch** – Tannengrün, Heu-Gold, Hügellinien; modern und klar gesetzt.
 3. **Spielerisch, nie kindisch** – Maskottchen und Schwyzerdütsch-Spicker für Familien,
    trotzdem zurückhaltend genug für B2B.
-4. **Emmental statt Alpenkitsch** – Tannengrün, Heu-Gold, Hügellinien; modern und klar gesetzt.
+4. **Null Webload** – Fliesstext in der Systemschrift, Bilder optimiert (WebP/AVIF), keine unnötigen Extras.
 
 ## 3. Farbwelt (almenwirtschaftlich warm)
 
