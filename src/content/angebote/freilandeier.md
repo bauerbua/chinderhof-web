@@ -1,7 +1,7 @@
 ---
 title: Freilandeier
 topper: Vom Hof in dein Egglab
-description: Freilandeier vom Chinderhof bei Langnau im Emmental – als Abo mit Abholung am Hof oder Lieferung. Jetzt anmelden.
+description: Freilandeier vom Oberhusers bei Langnau im Emmental – als Abo mit Abholung am Hof oder Lieferung. Jetzt anmelden.
 hero: >-
   Unser Hühnervolk ist bewusst klein gehalten – dafür leben die Hühner richtig:
   mit viel Auslauf, frischem Grün und täglicher Zuwendung. Die Eier kommen frisch

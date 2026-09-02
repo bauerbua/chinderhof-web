@@ -1,0 +1,18 @@
+---
+/**
+ * Mascot – Sub-Branding-Maskottchen je Route (Design-System §9).
+ * Rendert das der aktuellen Route zugewiesene Hof-Icon.
+ */
+import Icon from './Icon.astro';
+import { mascotFor } from '../config/mascots';
+import type { IconName } from './Icon.astro';
+
+interface Props {
+  name?: IconName;
+  class?: string;
+}
+
+const { name = mascotFor(Astro.url.pathname), class: className } = Astro.props;
+---
+
+<Icon name={name} class={className} />

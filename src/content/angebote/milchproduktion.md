@@ -1,30 +1,37 @@
 ---
 title: Milchproduktion
 topper: Milch, die Emmentaler-Geschichte schreibt
-description: Milchviehhaltung beim Chinderhof – moderner Laufstall, Weide im Sommer, reine Heufütterung im Winter, echte Emmentaler-Produktion. B2B-Anfragen willkommen.
+description: Milchviehhaltung beim Oberhusers – moderner Laufstall, Weide im Sommer, Gras- und Heufütterung für den Emmentaler AOP, Milch aus der Region. B2B-Anfragen willkommen.
 hero: >-
-  Unsere Milchkühe leben in einem modernen Laufstall und geniessen den Sommer
-  auf der Weide. Im Winter gibt es ausschliesslich Heu – so entsteht aus unserer
-  Milch der echte, geschützte Emmentaler-Käse.
+  Unsere Milchkühe leben in einem modernen Laufstall und geniessen 9 Monate im Jahr
+  Weide und reine Gras-/Heufütterung – so entsteht aus unserer Milch der echte,
+  geschützte Emmentaler-AOP-Käse. In den 3 Wintermonaten füttern wir wegen der
+  Lager- und Futtermöglichkeiten zusätzlich Silage; diese Milch fliesst in den
+  Industriekanal.
 highlights:
   - Moderner Laufstall mit viel Freilauf
-  - Sommer auf der Weide, Winter mit reinem Heu
+  - 9 Monate Weide & Gras/Heu – Grundlage für Emmentaler AOP
+  - 3 Monate Winter mit Silage (Milch in den Industriekanal)
   - 2×4er Fischgrätenmelkstand
-  - Grundlage für echten Emmentaler-Käse
   - Aufzuchtrinder und Kälber ebenfalls mit Laufstall-Haltung
-  - Betriebszweigegemeinschaft mit der Familie Scheidegger
 form: b2b
 ---
 
 ## Unsere Haltung
 
-In einer **Betriebszweigegemeinschaft** mit der Familie Scheidegger halten wir unsere Milchkühe in einem **modernen, neuen Laufstall**. Auch Aufzuchtrinder und Kälber leben in Laufställen und können sich frei bewegen.
+Wir halten unsere Milchkühe in einem **modernen, neuen Laufstall**. Auch Aufzuchtrinder und Kälber leben in Laufställen und können sich frei bewegen.
 
-Gemolken wird zweimal täglich in einem **2×4er Fischgrätenmelkstand** – tierfreundlich und effizient. Im Sommer sind alle Tiere auf der Weide, im Winter füttern wir **ausschliesslich Heu**. Das ist der Grund, warum aus unserer Milch echter Emmentaler-Käse mit seinem unverwechselbaren Geschmack entsteht.
+Gemolken wird zweimal täglich in einem **2×4er Fischgrätenmelkstand** – tierfreundlich und effizient.
+
+## Weide & Fütterung
+
+Im **grossen Teil des Jahres (9 Monate)** sind die Tiere auf der Weide und werden ausschliesslich mit **Gras und Heu** gefüttert. Aus dieser Milch entsteht unser **echter Emmentaler-AOP-Käse** mit seinem unverwechselbaren Geschmack.
+
+In den **drei Wintermonaten** füttern wir wegen begrenzter Futter- und Lagermöglichkeiten zusätzlich **Silage**. Die Milch aus dieser Phase fliesst in den **Industriekanal**.
 
 ## Zusammenarbeit & Abnahme
 
-Unsere Milch geht in die Emmentaler-Käseproduktion. Für Abnehmer aus der Region sind wir ein verlässlicher Partner:
+Unsere Milch aus der Weide- und Heuphase geht in die Emmentaler-AOP-Käseproduktion. Für Abnehmer aus der Region sind wir ein verlässlicher Partner:
 
 - **Käsereien:** Milch als Grundlage für Emmentaler-Käse
 - **Abnahme & Lieferung:** Gern stellen wir Mengen, Rhythmus und Qualität im persönlichen Gespräch zusammen

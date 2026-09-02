@@ -15,6 +15,6 @@ export const umzug = {
   altStandort: 'aus der Nachbargemeinde',
 
   hinweis:
-    'Der Betrieb ist umgezogen und wird ab jetzt am Chinderhof weitergeführt – eure Kund:innen sind uns herzlich willkommen!',
-  ueberUnsTitel: 'So ist der Chinderhof entstanden',
+    'Der Betrieb ist umgezogen und wird ab jetzt auf dem Oberhusers weitergeführt – eure Kund:innen sind uns herzlich willkommen!',
+  ueberUnsTitel: 'So ist der Oberhusers entstanden',
 };

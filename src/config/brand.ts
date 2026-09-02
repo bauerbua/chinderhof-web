@@ -2,7 +2,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  * BRAND CONFIGURATION
  * ─────────────────────────────────────────────────────────────────────────────
- * Single file to edit for the Chinderhof brand.
+ * Single file to edit for the Oberhusers brand.
  *
  * Colors flow into  → src/styles/theme.css  (CSS custom properties)
  * Fonts flow into   → astro.config.mjs      (Astro built-in font optimizer)
@@ -12,10 +12,10 @@
 
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
-  name: 'Chinderhof',
+  name: 'Oberhusers',
   tagline: 'Emmentaler Familie & Freilandeier im Herzen des Emmentals',
   description:
-    'Der Chinderhof bei Langnau im Emmental – ein Familienbetrieb mit Freilandeiern, Milchvieh, Ackerbau, Kindernachmittagen und viel Liebe zu Tieren und Land.',
+    'Oberhusers bei Langnau im Emmental – ein Familienbetrieb mit Freilandeiern, Milchvieh, Ackerbau, Kindernachmittagen und viel Liebe zu Tieren und Land.',
   url: 'https://www.chinderhof.ch',
   locale: 'de_CH',
 

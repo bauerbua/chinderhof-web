@@ -1,9 +1,9 @@
 ---
 title: Ackerbau
 topper: Vom Feld in die Region
-description: Ackerbau beim Chinderhof bei Langnau im Emmental – Saatkartoffeln, Getreide, Silomais und Futterrüben, dazu Wald und unser Hoschtert-Obstgarten.
+description: Ackerbau beim Oberhusers bei Langnau im Emmental – Saatkartoffeln, Getreide, Silomais und Futterrüben, dazu Wald und unser Hoschtert-Obstgarten.
 hero: >-
-  Zum Chinderhof gehört Land, das wir mit Verantwortung bewirtschaften:
+  Zum Oberhusers gehört Land, das wir mit Verantwortung bewirtschaften:
   Saatkartoffeln, Getreide, Silomais und Futterrüben. Dazu der Wald für Bauholz
   und Energie sowie der „Hoschtert" – unser Obstgarten für die feinen Äpfel zum
   Mosten.
@@ -11,13 +11,13 @@ highlights:
   - Saatkartoffeln, Getreide, Silomais und Futterrüben
   - "Wald: Baustoff und Energie aus dem eigenen Bestand"
   - "„Hoschtert“ mit Äpfeln für eigenen Most"
-  - Teil einer Betriebszweigegemeinschaft für effizienten Anbau
+  - Effizienter, nachhaltiger Anbau im Familienbetrieb
 form: none
 ---
 
 ## Unsere Kulturen
 
-Auf unseren Feldern stehen **Saatkartoffeln, Getreide, Silomais und Futterrüben**. Der Anbau erfolgt zusammen mit der Familie Scheidegger in einer **Betriebszweigegemeinschaft** – so nutzen wir Maschinen und Flächen clever und pflegen den Boden nachhaltig.
+Auf unseren Feldern stehen **Saatkartoffeln, Getreide, Silomais und Futterrüben**. Wir bewirtschaften die Flächen als **Familienbetrieb** – so nutzen wir Maschinen und Boden clever und pflegen den Boden nachhaltig.
 
 ## Wald & Obst
 

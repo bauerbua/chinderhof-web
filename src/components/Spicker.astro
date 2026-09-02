@@ -1,7 +1,7 @@
 ---
 /**
  * Spicker – Schweizerdeutsch-Kärtchen (Design-System §9).
- * „Selbstverständlich uf em Chinderhof" – Begriffe mit Bedeutung.
+ * „Selbstverständlich uf em Oberhusers" – Begriffe mit Bedeutung.
  */
 import Icon from './Icon.astro';
 import type { IconName } from './Icon.astro';
@@ -29,7 +29,7 @@ const defaultItems: Spick[] = [
 
 const { topper = 'Schwyzerdütsch', titel, items = defaultItems } = Astro.props;
 
-const titelHtml = titel ?? 'Selbstverständlich uf em <span class="doodle-underline">Chinderhof</span>';
+const titelHtml = titel ?? 'Selbstverständlich uf em <span class="doodle-underline">Oberhusers</span>';
 ---
 
 <section class="border-y border-border bg-surface py-10 sm:py-12" aria-label="Schweizerdeutsch-Begriffe">

@@ -1,7 +1,7 @@
 ---
 title: Kindernachmittage
 topper: Kinderprogramm auf dem Hof
-description: Kindernachmittage und Kinderprogramm beim Chinderhof bei Langnau im Emmental – Tiere entdecken, Natur erleben, Bauernhofmachen. Jetzt anmelden.
+description: Kindernachmittage und Kinderprogramm beim Oberhusers bei Langnau im Emmental – Tiere entdecken, Natur erleben, Bauernhofmachen. Jetzt anmelden.
 hero: >-
   Auf unserem Hof gibt es für Kinder viel zu entdecken: Ziegen, Minipigs,
   Kaninchen und Hühner, dazu weite Wiesen und das hügelige Emmental rund um

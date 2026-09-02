@@ -13,10 +13,10 @@ interface Props {
 }
 
 const { items = [
-  { label: 'Weidehaltung im Sommer', icon: 'sun' },
-  { label: 'Heufütterung im Winter', icon: 'wheat' },
-  { label: 'Echter Emmentaler',      icon: 'cheese' },
-  { label: 'Freilandeier vom Hof',   icon: 'egg' },
+  { value: '9 Monate', label: 'Weidegang & Gras/Heu', icon: 'sun' },
+  { value: 'Milch',    label: 'für Emmentaler AOP',   icon: 'wheat' },
+  { value: '3 Monate', label: 'Winter mit Silage',    icon: 'milkcan' },
+  { label: 'Freilandeier vom Hof', icon: 'egg' },
 ] } = Astro.props;
 ---
 

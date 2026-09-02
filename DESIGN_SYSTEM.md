@@ -1,4 +1,4 @@
-# Design-System „Chinderhof"
+# Design-System „Oberhusers"
 
 > Dieses Dokument ist die verbindliche Referenz für Design-Entscheidungen im Projekt.
 > Änderungen am Aussehen stehen hier zuerst – danach im Code (`src/styles/theme.css` + `src/config/brand.ts`).
@@ -24,7 +24,7 @@ Keine künstliche „Bauernhof-Romantik“, keine übertriebene Werbesprache und
 4. Was soll die Website von Wettbewerber*innen unterscheiden?
 
 Die Persönlichkeit des echten Hofs.
-Familie, Tiere, Landschaft und Arbeitsweise werden ehrlich und direkt gezeigt. Der regionale Emmentaler Charakter und ein dezenter Schweizerdeutsch-Touch machen den Chinderhof unverwechselbar.
+Familie, Tiere, Landschaft und Arbeitsweise werden ehrlich und direkt gezeigt. Der regionale Emmentaler Charakter und ein dezenter Schweizerdeutsch-Touch machen den Hof Oberhusers unverwechselbar.
 
 5. Was sollen Besucher*innen am Ende denken und tun?
 
@@ -45,6 +45,12 @@ Persönliche Sprache und warme Gestaltung statt Marketing-Floskeln.
 4. Einfach statt kompliziert
 Klare Navigation, verständliche Informationen und möglichst kurze Wege zu Abo, Anmeldung und Kontakt.
 
+5. Klar statt kitschig
+Schlichtes, modernes und professionelles Design. Keine klassische „Bauernhof-Romantik“ – zeitgemäß und stilvoll, mit dezenten, spielerischen Akzenten statt übertriebener Deko.
+
+6. Einzigartig statt kopiert
+Kein KI-/Template-Look. Der Hof soll sich durch handgemachte Elemente (Doodles, persönliche Notizen, Spicker) von Copy-Paste-Projekten abheben und wie ein echtes, einzigartiges Projekt wirken.
+
 ## 2. Visuelle Design-Prinzipien (ergänzend zu §1)
 
 Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber nicht glatt, Herzlich statt werblich, Einfach statt kompliziert) werden hier um konkrete visuelle Umsetzungsprinzipien ergänzt:
@@ -55,6 +61,7 @@ Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber n
 3. **Spielerisch, nie kindisch** – Maskottchen und Schwyzerdütsch-Spicker für Familien,
    trotzdem zurückhaltend genug für B2B.
 4. **Null Webload** – Fliesstext in der Systemschrift, Bilder optimiert (WebP/AVIF), keine unnötigen Extras.
+5. **Anti-KI / kein Template-Look** – Handgezeichnete, leicht unperfekte Trennlinien (analog zur Linie unter dem Schriftzug im Logo), Bilder im Fotokarten-/Polaroid-Stil mit leichter Rotation (±1–2°) und weissem Rand, sympathische Schweizerdeutsch-Spicker und persönliche Notizen am Seitenrand. So wirkt der Hof wie ein echtes Projekt statt einer generischen Vorlage.
 
 ## 3. Farbwelt (almenwirtschaftlich warm)
 
@@ -82,6 +89,8 @@ Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber n
   der Akzentflächen – warm, aber kein „Weihnachtsbaum".
 - `salbei` nur als Fläche (z. B. `bg-primary-light/10`), nie als Textfarbe.
 
+> **Anpassungsfähige Basis:** Diese Palette ist die Ausgangsbasis und darf im Laufe der Entwicklung an bessere Kombinationen angepasst werden (z. B. ein wärmerer Sand-/Beigeton aus dem Logo als Hintergrund). Dabei bleiben die WCAG-AA-Kontrastregeln oben verbindlich – keine Anpassung auf Kosten der Lesbarkeit.
+
 ## 4. Typografie
 
 | Ebene | Schrift | Schnitt | Hinweis |
@@ -91,7 +100,7 @@ Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber n
 | Kicker/Labels | Systemschrift, **Uppercase**, weit getrackt | 700 | `fir`-farbig, sauberer Kontrast zu den Serifen |
 
 - Fraunces wird **gemischt** gesetzt (kein `uppercase` auf Headlines).
-- Ausnahme: Wordmark/Logo „CHINDERHOF" sowie Footer-Überschriften bleiben uppercase-style.
+- Ausnahme: Wordmark/Logo „OBERHUSERS" sowie Footer-Überschriften bleiben uppercase-style.
 - Bunny Fonts ist DSG-konform; optional → Fraunces später selbst hosten (wie zuvor Oswald/Inter).
 
 ## 5. Formen & Flächen (organic)
@@ -102,6 +111,13 @@ Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber n
 - **Doodle** (handgezeichnete Unterstreichung) um Schlüsselbegriffe (z. B. „Emmentalerfamilie").
 - **Schatten:** weich & warm `rgba(43, 35, 26, …)` – keine harten grauen Schatten.
 - **Galerieschiene:** Bilder wie Polaroids – leichte Rotation (±1–2°), weisser Rand, dezent.
+
+### Hero-Konzept „Moderne Typo mit spielerischen Akzenten"
+
+- **Layout:** Statt eines reinen Full-Screen-Hero-Bilds steht primär ein **Typo-Hero** im Zentrum: grosse, moderne Headlines in **Fraunces** auf warmem, hellem Hintergrund-Fundament (kein abgedunkeltes Vollbild-Foto als Standard).
+- **Spielerische Akzente:** Feine, handgezeichnete Doodles/Line-Art-Elemente (unterstrichene Begriffe, schwebende Hof-Motive), die **direkt aus dem neuen Logo-Entwurf** (Tier- und Pflanzenillustrationen) abgeleitet sind.
+- **Wirkung:** Brückenschlag zwischen „stilvoll/modern" und „kinderfreundlich/herzlich"; unterscheidet sich von klassischen Bauernhof-Websites mit Vollbild-Hero.
+- Full-Screen-Hero-Bilder sind damit **nicht der Standard**, sondern optional/Gegensteuer.
 
 ## 6. Icons & Ornamente („Eigene Hof-Motive")
 
@@ -120,7 +136,7 @@ Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber n
 
 ## 8. Logo & Marke (Lieferung offen)
 
-- **Bis zur Lieferung:** Wordmark („Chinderhof") in Fraunces semibold, `fir`.
+- **Bis zur Lieferung:** Wordmark („Oberhusers") in Fraunces semibold, `fir`.
 - **Regeln (gelten vorab):**
   - Schutzraum ≥ 1× „C"-Höhe rundum, minimal Wordmark 160px, Symbol 32px.
   - Primär `fir` auf `warm-white`/`cream`; nie direkt auf foto ohne dunkles Overlay.
@@ -133,7 +149,20 @@ Die vier metaphorischen Leitsterne aus §1 (Echt statt inszeniert, Modern aber n
 - Strich-Huhn im Icon-Stil (gleiche Zeichenlogik wie §6). Name: offen → Besitzerin bestimmt.
 - Einsatz zurückhaltend (z. B. Aufsörteln-Botschaft, kleine Randfigur), nie überall.
 
-### Schweizerdeutsch-Spicker („Selbstverständlich uf em Chinderhof")
+### Sub-Branding-Maskottchen pro Route
+Das Gesamtlogo „OBERHUSERS" besteht aus einer Reihe einzelner Tier- und Pflanzen-Illustrationen. Jede Unterseite/Sparte erhält ein zugewiesenes Logo-Element als visuelles Sub-Branding:
+
+| Route | Maskottchen | Einsatz |
+|---|---|---|
+| `/freilandeier` | **Huhn** | Begrüssung im Header & Abo-Formular |
+| `/milchproduktion` | **Kuh** | Begleitung bei Weide- & Emmentaler-Infos |
+| `/ackerbau` | **Kartoffel, Weizen & Mais** | Trennlinie / Doodles |
+| `/kinderprogramm` | **Berner Sennenhund** | Sympathisches Maskottchen (lebt auf dem Hof) |
+| `/ueber-uns` & `/` | **Kleeblatt & Gesamtes Ensemble** | Panorama-Logo |
+
+> **Technischer Hinweis:** Die Vektormotive (SVGs) werden so vorbereitet, dass sie später per CSS/JS animiert werden können (z. B. Line-Drawing-Effekt beim Scrollen, leichtes Wackeln bei Hover).
+
+### Schweizerdeutsch-Spicker („Selbstverständlich uf em Oberhusers")
 - Kärtchen (Chips) in `gold-soft`, Wort in `fir-deep` + Icon in `terracotta`, Bedeutung dahinter.
 - Wortliste (Besitzerin prüft): **Hoschtert** (Obstgarten), **Schüür** (Scheune),
   **Gitzeli** (Zicklein), **Chalb** (Kalb), **Heuet** (Heuernte), **gäbig** (praktisch).

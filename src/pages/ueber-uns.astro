@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
 import CTA from '../components/CTA.astro';
 import Icon from '../components/Icon.astro';
+import Mascot from '../components/Mascot.astro';
 import type { IconName } from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
@@ -25,7 +26,7 @@ const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
 
 <BaseLayout
   title="Über uns"
-  description={`Wer steckt hinter dem ${brand.name}? Eine Emmentalerfamilie, eine Betriebszweigegemeinschaft und viele Tiere – lerne uns kennen.`}
+  description={`Wer steckt hinter dem ${brand.name}? Eine Emmentalerfamilie und viele Tiere – lerne uns kennen.`}
 >
   <Header slot="header" />
 
@@ -37,7 +38,7 @@ const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
       <div class="overflow-hidden rounded-lg shadow-lg">
         <Image
           src={aboutImage}
-          alt="Hofsphäre des Chinderhofs im Emmental"
+          alt="Hofsphäre des Oberhusers im Emmental"
           width={800}
           height={600}
           loading="lazy"
@@ -46,12 +47,14 @@ const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
         />
       </div>
       <div class="space-y-5">
-        <span class="text-topper font-bold uppercase tracking-widest text-primary">Wer wir sind</span>
+        <span class="inline-flex items-center gap-2 text-topper font-bold uppercase tracking-widest text-primary">
+          <Mascot class="size-5 shrink-0" />
+          Wer wir sind
+        </span>
         <h2 class="font-heading text-h2 font-semibold text-text">Eine waschechte Emmentalerfamilie</h2>
         <p class="text-text-muted leading-relaxed">
           Wir sind eine Emmentalerfamilie und lieben das hügelige Land rund um Langnau. Mit unseren vier
-          Kindern (11–23 Jahre) bewirtschaften wir zusammen mit der Familie Daniel &amp; Elisabeth
-          Scheidegger in einer <strong class="text-text">Betriebszweigegemeinschaft</strong> einen
+          Kindern (11–23 Jahre) bewirtschaften wir einen
           Landwirtschaftsbetrieb mit Milchvieh, Saatkartoffeln, Silomais, Getreide und Rüben.
         </p>
         <p class="text-text-muted leading-relaxed">
@@ -72,13 +75,13 @@ const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
             <h2 class="font-heading text-h2 font-semibold text-text">{umzug.ueberUnsTitel}</h2>
             <p class="text-text-muted leading-relaxed">
               Der Betrieb „<strong class="text-text">{umzug.oldBetriebName}</strong>" ({umzug.altStandort})
-              ist in den Chinderhof übergegangen: Ein Hof ist hierher umgezogen, und alles, was dort
+              ist in den Oberhusers übergegangen: Ein Hof ist hierher umgezogen, und alles, was dort
               bisher hergestellt wurde, wird jetzt hier weitergeführt – mit den gleichen Händen, dem
               gleichen Handwerk und dem gleichen Blick für Qualität.
             </p>
             <p class="text-text-muted leading-relaxed">
               Für alle bisherigen Kund:innen ändert sich nichts: Die Produkte bleiben, der Weg führt
-              nur neu über den Hofplatz des Chinderhofs.
+              nur neu über den Hofplatz des Oberhusers.
             </p>
           </div>
           <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
@@ -107,8 +110,10 @@ const tiere: { name: string; beschreibung: string; icon: IconName }[] = [
           <p class="mt-2 text-text-muted leading-relaxed">
             In einem modernen Laufstall halten wir Milchkühe – zusammen mit Aufzuchtrindern und
             Kälbern, die sich frei bewegen können. Gemolken wird im 2×4er Fischgrätenmelkstand.
-            Im Sommer sind alle Tiere auf der Weide, im Winter gibt es ausschliesslich Heu –
-            so entsteht aus unserer Milch echter Emmentaler-Käse.
+            An 9 Monaten im Jahr sind die Tiere auf der Weide und werden mit Gras und Heu
+            gefüttert – so entsteht aus unserer Milch echter Emmentaler-AOP-Käse. In den 3
+            Wintermonaten verfüttern wir zusätzlich Silage; diese Milch fliesst in den
+            Industriekanal.
           </p>
         </div>
 

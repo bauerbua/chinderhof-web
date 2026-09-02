@@ -3,7 +3,7 @@ import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 /**
- * Die vier Angebotsseiten des Chinderhofs werden content-driven aus
+ * Die vier Angebotsseiten des Oberhusers werden content-driven aus
  * Markdown-Dateien unter src/content/angebote/*.md erzeugt.
  * Slugs → Routen: freilandeier → /freilandeier, etc.
  */

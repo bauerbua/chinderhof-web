@@ -1,0 +1,69 @@
+---
+/** Partnerschaften & Qualitäts-Labels (README §4 Home). */
+interface Props {
+  topper?: string;
+  heading?: string;
+  description?: string;
+}
+
+const {
+  topper = 'Partnerschaften & Qualitäts-Labels',
+  heading = 'Gemeinsam für Qualität',
+  description = 'Der Hof Oberhusers arbeitet mit festen Partnern zusammen und trägt anerkannte Labels – damit Tierwohl und Qualität keine Versprechen bleiben.',
+} = Astro.props;
+
+const partner: { name: string; beschreibung: string; url: string }[] = [
+  {
+    name: 'Stallvisite',
+    beschreibung: 'Hof-Erlebnis & offene Stalltüren – Mitglied beim Schweizer Bauernverband.',
+    url: 'https://www.schweizerbauern.ch/bauernhof-erleben/ausfluege/stallvisite/',
+  },
+  {
+    name: 'IP-Suisse',
+    beschreibung: 'Ganzheitliche nachhaltige Hof-Zertifizierung.',
+    url: 'https://www.ipsuisse.ch/',
+  },
+  {
+    name: 'SEMAG',
+    beschreibung: 'Saatvermehrung von Pflanzkartoffeln.',
+    url: 'https://www.semag.ch/',
+  },
+  {
+    name: 'Emmentaler AOP',
+    beschreibung: 'Käserei-Rohmilchlieferant.',
+    url: 'https://www.emmentaler.ch/',
+  },
+];
+---
+
+<section class="bg-surface py-section">
+  <div class="mx-auto max-w-site px-4 sm:px-6">
+    <div class="mx-auto mb-10 max-w-2xl text-center">
+      <span class="text-topper font-bold uppercase tracking-widest text-primary">{topper}</span>
+      <h2 class="mt-2 font-heading text-h2 font-semibold text-text">{heading}</h2>
+      <p class="mt-3 text-text-muted leading-relaxed">{description}</p>
+    </div>
+
+    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
+      {partner.map(({ name, beschreibung, url }) => (
+        <li class="flex flex-col justify-between rounded-lg border border-border bg-background p-5 shadow-sm">
+          <div>
+            <h3 class="font-heading text-h3 font-semibold text-text">{name}</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">{beschreibung}</p>
+          </div>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-bold text-primary transition-colors hover:text-text"
+          >
+            Mehr erfahren
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

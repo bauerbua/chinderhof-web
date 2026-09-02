@@ -26,8 +26,8 @@ const covers: Record<string, ImageMetadata> = {
 
 const {
   topper = 'Unser Angebot',
-  heading = 'Das lebt und wächst auf dem Chinderhof',
-  description = 'Vier Stärken, ein Hof – entdecke, was den Chinderhof bei Langnau im Emmental ausmacht.',
+  heading = 'Das lebt und wächst auf dem Oberhusers',
+  description = 'Vier Stärken, ein Hof – entdecke, was Oberhusers bei Langnau im Emmental ausmacht.',
   angebote,
 } = Astro.props;
 ---
@@ -54,7 +54,7 @@ const {
                 <div class="relative aspect-4/3 overflow-hidden">
                   <Image
                     src={cover}
-                    alt={`${data.title} auf dem Chinderhof`}
+                    alt={`${data.title} auf dem Oberhusers`}
                     width={600}
                     height={450}
                     loading="lazy"

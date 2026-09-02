@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * IMAGE CONFIGURATION — Chinderhof
+ * IMAGE CONFIGURATION — Oberhusers
  * ─────────────────────────────────────────────────────────────────────────────
  * This is the single file to edit when swapping the placeholder photos for
  * the farm's real pictures. Astro optimizes every local image at build time
@@ -12,7 +12,7 @@
  *     about/     ← image for the About section and Über-uns page
  *     gallery/   ← all farm photos (drop any number of files here)
  *
- * TODO: Replace with real Chinderhof photos before going live.
+ * TODO: Replace with real Oberhusers photos before going live.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 

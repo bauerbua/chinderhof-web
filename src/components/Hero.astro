@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
 import { heroImage as localHeroImage } from '../config/images';
+import Mascot from './Mascot.astro';
 
 // Fallback Unsplash URL used until a local image is added to
 // src/assets/images/hero/ and registered in src/config/images.ts
@@ -12,18 +13,20 @@ const PLACEHOLDER = 'https://images.unsplash.com/photo-1504307651254-35680f356df
 interface Props {
   topper?: string;
   heading?: string;
+  doodleWord?: string;
   description?: string;
   ctaLabel?: string;
   ctaHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
-  imageSrc?: ImageMetadata | string;
+  imageSrc?: ImageMetadata | string | null;
   imageAlt?: string;
 }
 
 const {
   topper = 'Emmental · Langnau',
-  heading = 'Chinderhof',
+  heading = 'Oberhusers',
+  doodleWord = 'Emmental',
   description = brand.description,
   ctaLabel = 'Eier-Abo bestellen',
   ctaHref = '/freilandeier',
@@ -32,13 +35,23 @@ const {
   imageSrc = localHeroImage ?? PLACEHOLDER,
   imageAlt = 'Bauernhof im Emmental',
 } = Astro.props;
+
+const hasDoodle = doodleWord && heading.includes(doodleWord);
+const headlineHtml = hasDoodle
+  ? heading.replace(
+      doodleWord,
+      `<span class="doodle-underline">${doodleWord}</span>`,
+    )
+  : heading;
 ---
 
 <section class="relative overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-24">
-  <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
+  <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10">
+    <!-- Copy – dominiert -->
+    <div class="relative order-2 space-y-5 lg:order-1 lg:col-span-8 lg:space-y-6">
+      <!-- handgezeichnetes Maskottchen / Sub-Branding -->
+      <Mascot class="absolute -left-2 -top-10 hidden size-14 -rotate-12 text-terracotta lg:block" />
 
-    <!-- Copy -->
-    <div class="order-2 space-y-5 lg:order-1 lg:space-y-6">
       {topper && (
         <span class="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-topper font-bold uppercase tracking-widest text-primary">
           {topper}
@@ -48,9 +61,8 @@ const {
       <h1
         class="font-heading text-display font-semibold leading-[1.06] tracking-tight text-text"
         transition:name="hero-heading"
-      >
-        {heading}
-      </h1>
+        set:html={headlineHtml}
+      ></h1>
 
       <p class="max-w-lg text-lead text-text-muted leading-relaxed">
         {description}
@@ -84,20 +96,22 @@ const {
       </a>
     </div>
 
-    <!-- Hero image -->
-    <div
-      class="relative order-1 overflow-hidden rounded-lg shadow-xl aspect-4/3 lg:order-2"
-      transition:name="hero-image"
-    >
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        width={800}
-        height={600}
-        loading="eager"
-        decoding="async"
-        class="size-full object-cover"
-      />
-    </div>
+    <!-- Hero image – optionale, kleinere Bildkarte -->
+    {imageSrc && (
+      <div
+        class="relative order-1 overflow-hidden rounded-lg shadow-xl lg:order-2 lg:col-span-4"
+        transition:name="hero-image"
+      >
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          width={800}
+          height={600}
+          loading="eager"
+          decoding="async"
+          class="size-full object-cover"
+        />
+      </div>
+    )}
   </div>
 </section>

@@ -6,6 +6,7 @@ import UmzugHinweis from '../components/UmzugHinweis.astro';
 import Hero from '../components/Hero.astro';
 import TrustBar from '../components/TrustBar.astro';
 import AngebotsGrid from '../components/AngebotsGrid.astro';
+import Partnerschaften from '../components/Partnerschaften.astro';
 import About from '../components/About.astro';
 import Spicker from '../components/Spicker.astro';
 import Gallery from '../components/Gallery.astro';
@@ -48,23 +49,27 @@ angebote.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
   <Hero
     topper="Emmental · Langnau"
     heading={brand.name}
-    description="Der Chinderhof ist ein Familienbetrieb im Herzen des Emmentals: Freilandeier als Abo, Milchvieh mit Weidegang, Kinder auf dem Hof und eigene Ackerfrüchte. Schau vorbei – wir freuen uns auf dich."
+    doodleWord="Oberhusers"
+    description="Oberhusers ist ein Familienbetrieb im Herzen des Emmentals: Freilandeier als Abo, Milchvieh mit Weidegang, Kinder auf dem Hof und eigene Ackerfrüchte. Schau vorbei – wir freuen uns auf dich."
     ctaLabel="Eier-Abo bestellen"
     ctaHref="/freilandeier"
     secondaryLabel="Unser Angebot"
     secondaryHref="/#angebote"
+    imageSrc={null}
   />
 
   <TrustBar
     items={[
-      { label: 'Weidehaltung im Sommer', icon: 'sun' },
-      { label: 'Heufütterung im Winter', icon: 'wheat' },
-      { label: 'Echter Emmentaler',      icon: 'cheese' },
-      { label: 'Freilandeier vom Hof',   icon: 'egg' },
+      { value: '9 Monate', label: 'Weidegang & Gras/Heu', icon: 'sun' },
+      { value: 'Milch',    label: 'für Emmentaler AOP',   icon: 'wheat' },
+      { value: '3 Monate', label: 'Winter mit Silage',    icon: 'milkcan' },
+      { label: 'Freilandeier vom Hof', icon: 'egg' },
     ]}
   />
 
   <AngebotsGrid angebote={angebote} />
+
+  <Partnerschaften />
 
   <About />
 

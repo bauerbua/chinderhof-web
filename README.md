@@ -1,18 +1,17 @@
-# Chinderhof – Projektbeschreibung
+# Oberhusers – Projektbeschreibung
 
-> **Status:** Entwurf / im Aufbau. Hosting, Domain und konkrete Kontaktdaten sind noch nicht final definiert (mit Platzhaltern hinterlegt).
-
----
 
 ## 1. Vision
 
-Der **Chinderhof** ist ein Familienbetrieb im Emmental (Gegend um **Langnau im Emmental**, Kanton Bern). Die Website soll den Hof als **sympathische, authentische und moderne Landwirtschaft** präsentieren – nahbar, ehrlich und mit **Schweizerdeutsch-Touch**. Sie ist das digitale Schaufenster des Hofs und macht das Angebot sichtbar:
+Der **Hof Oberhusers** ist ein Familienbetrieb im Emmental (Gegend um **Langnau im Emmental**, Kanton Bern). Die Website soll den Hof als **sympathische, authentische und moderne Landwirtschaft** präsentieren – nahbar, ehrlich und mit **Schweizerdeutsch-Touch**. Sie ist das digitale Schaufenster des Hofs und macht das Angebot sichtbar:
 
-- **Transparenz & Werte:** Wie wir Tiere halten (Laufstall, Weide, Heufütterung), was wir anbauen, wer hinter dem Betrieb steht.
-- **Verkauf & Anmeldung:** Abo-Bestellungen (Freilandeier) und Anmeldungen (Kindernachmittage) mit einem kurzen, unkomplizierten Workflow.
-- **Lokale Sichtbarkeit:** Starke lokale SEO, damit Familien und Abnehmer aus der Region den Hof finden.
 
-Tonfall: **herzlich, bodenständig, modern**. Keine klassische Werbesprache – der Chinderhof spricht in Hochdeutsch mit regionalen Akzenten (z. B. „Hoschtert", „Loppigen" nur wo passend), wie die Emmentaler Familie, die er ist.
+- **Wissen weitergeben:** Wir teilen gerne Wissen und Infos und lassen Menschen einen Einblick in die Landwirtschaft erhalten.
+- **Lokale Sichtbarkeit:** Eine klare Übersicht über Angebot und Betriebszweige, damit Abnehmer und Familien aus der Region den Hof kennen und vertrauen.
+- **Offener Hof:** Es gibt keine Barriere zwischen Bauernhof und Kundinnen – der Hof ist immer offen, alle sind jederzeit willkommen.
+- **Vielseitigkeit zeigen:** Die verschiedenen Betriebszweige (Freilandeier, Milchproduktion, Ackerbau, Kinderprogramm) machen den Unterschied zu anderen Höfen sichtbar.
+
+Tonfall: **herzlich, bodenständig, modern**. Keine klassische Werbesprache – der Hof Oberhusers spricht in Hochdeutsch mit regionalen Akzenten (z. B. „Hoschtert", „Loppigen" nur wo passend), wie die Emmentaler Familie, die er ist.
 
 ## 2. Zielgruppen
 
@@ -47,13 +46,24 @@ Regeln:
 
 ## 4. Seiten-Inhalte (Kurz-Spec)
 
-- **Home:** Hero-Bild, Willkommen mit Emmentaler-Charme, Highlight-Leiste (Weidehaltung, Heufütterung, Emmentaler, Freilandeier), 4 Angebots-Karten, Familien-Vorstellung, eingebundene Fotos, CTA „Eier-Abo bestellen" / „Kinderprogramm anmelden".
+- **Home:** Typo-Hero mit spielerischen Akzenten (statt reinem Full-Screen-Hero-Bild), Willkommen mit Emmentaler-Charme, Highlight-Leiste (Weidehaltung, Fütterungszyklus, Emmentaler, Freilandeier), 4 Angebots-Karten, Partnerschaften & Qualitäts-Labels, Familien-Vorstellung, eingebundene Fotos, CTA „Eier-Abo bestellen" / „Kinderprogramm anmelden".
 - **Freilandeier:** Haltung (Weide, überschaubares Hühnervolk), Abo-Modalitäten (Abholung am Hof oder Lieferung), **Anmelde-Formular** (§5).
-- **Milchproduktion:** Laufstall, Weide im Sommer, reine Heufütterung im Winter, Emmentaler-Produktion, Betriebszweigegemeinschaft, Lernende. **B2B-Anfrageformular** (§5).
+- **Milchproduktion:** Laufstall, Weide im Sommer, Fütterungszyklus nach Jahreszeit (9 Monate reine Gras-/Heufütterung → Rohmilch für Emmentaler AOP; 3 Monate Winter-Silage wegen Futter-/Lagermöglichkeiten → Milch in den Industriekanal), Emmentaler-Produktion, Lernende. **B2B-Anfrageformular** (§5).
 - **Kindernachmittage:** Zielgruppe/Alter, Inhalte, Treffpunkt, **Anmelde-Formular** (§5). Konkrete Details sind noch offen – die Seite ist so gebaut, dass Inhalte später einfach angepasst werden können.
 - **Ackerbau:** Saatkartoffeln, Getreide, Silomais, Futterrüben; Wald & Hoschtert.
-- **Über uns:** „Waschechte Emmentalerfamilie", Familie + Scheidegger-Betriebszweigegemeinschaft, Tiere (Lora, Elvira & Otto, Ziegen, Kaninchen), Lernende/Lehrstellen.
+- **Über uns:** „Waschechte Emmentalerfamilie", Familie, Tiere (Lora, Elvira & Otto, Ziegen, Kaninchen), Lernende/Lehrstellen.
 - **Kontakt:** Adresse (Hof, PLZ, Langnau im Emmental), Telefon, E-Mail, Anfahrt, einfaches Kontaktformular.
+
+### Partnerschaften & Qualitäts-Labels
+
+Fester Abschnitt auf der Home-/Landingpage; zeigt die bestehenden Zusammenarbeiten als Vertrauens-Baustein:
+
+| Partner | Kurzbeschreibung | Link |
+|---|---|---|
+| **Stallvisite** | Hof-Erlebnis & offene Stalltüren (Mitglied beim Schweizer Bauernverband) | https://www.schweizerbauern.ch/bauernhof-erleben/ausfluege/stallvisite/ |
+| **IP-Suisse** | Ganzheitliche nachhaltige Hof-Zertifizierung | https://www.ipsuisse.ch/ |
+| **SEMAG** | Saatvermehrung von Pflanzkartoffeln | https://www.semag.ch/ |
+| **Emmentaler AOP** | Käserei-Rohmilchlieferant | https://www.emmentaler.ch/ |
 
 ## 5. Anmelde- & Anfrage-Workflow (MVP)
 
@@ -103,8 +113,8 @@ Vorgeschlagene Fokus-Keywords (basierend auf Zielgruppen & Standort):
 
 - Freilandeier: `Freilandeier Langnau`, `Eier Abo Emmental`, `Eier ab Hof` · `Eier Abo`
 - Kinderprogramm: `Kindernachmittag Bauernhof`, `Kinderprogramm Emmental`, `Bauernhof Spazierziel Langnau`
-- Milchproduktion: `Emmentaler Hof`, `Milchvieh Laufstall Heufütterung`, `Lehrstelle Landwirt Emmental`
-- B2B: `Milch für Käserei`, `Saatkartoffeln Emmental`, `Betriebszweigegemeinschaft Emmental`
+- Milchproduktion: `Emmentaler Hof`, `Emmentaler AOP Rohmilch`, `Milch vom Laufstall`, `Lehrstelle Landwirt Emmental`
+- B2B: `Milch für Käserei`, `Saatkartoffeln Emmental`
 
 Technische Umsetzung: Strukturierte Daten (`LocalBusiness` mit Adresse), eine H1 pro Seite, saubere Überschriften-Hierarchie, beschreibende Metadaten, Alt-Texte, Sitemap, Robots.txt.
 

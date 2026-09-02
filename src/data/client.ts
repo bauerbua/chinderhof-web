@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * CLIENT DATA — Chinderhof
+ * CLIENT DATA — Oberhusers
  * ─────────────────────────────────────────────────────────────────────────────
  * Business copy: name, phone, email, address, socials.
  * Imported by Header, Footer, Contact page, and SEO components.
@@ -11,7 +11,7 @@
  */
 
 export const client = {
-  name: 'Chinderhof',
+  name: 'Oberhusers',
   email: 'info@chinderhof.ch',
   phoneForTel: '000000000',
   phoneFormatted: '000 000 00 00',
